@@ -11,7 +11,7 @@ function App() {
           Edit <code>src/App.js</code> and become sad.
         </p>
         <p>
-        	yuer is gry
+        	yuer is gry????
         </p>
         <a
           className="App-link"
