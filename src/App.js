@@ -1,28 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import ExampleComponent from './ExampleComponent.js';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-      	<ExampleComponent />
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and become sad.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+  	super(props);
+  	this.state = {
+  		inputLocation: '',
+  		location: '',
+  	}
+  }
+	
+	handleInputChange = (e) => {
+		this.setState({
+			inputLocation: e.target.value,
+		})
+	}
+
+	handleQuery = (e) => {
+		let inputLocation = this.state.inputLocation;
+		this.setState({
+			location: inputLocation,
+		})
+	}
+
+  render() {
+  	return (
+	    <div className="App">
+	      <h1>TravelFinder</h1>
+	      <input type="text" value={this.state.inputLocation} onChange={this.handleInputChange} />
+				<button onClick={this.handleQuery}> Submit </button>
+				<p>{this.state.location}</p>
+	    </div>
+	  );
+  }
 }
 
 export default App;
