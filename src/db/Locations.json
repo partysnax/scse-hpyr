@@ -1,0 +1,356 @@
+[
+    {
+        "CountryId": 1,
+        "Latitude": "48.8566969",
+        "LocationName": "Paris",
+        "Longitude": "2.3514616"
+    },
+    {
+        "CountryId": 2,
+        "Latitude": "43.7698712",
+        "LocationName": "Florence",
+        "Longitude": "11.2555757"
+    },
+    {
+        "CountryId": 3,
+        "Latitude": "52.3745403",
+        "LocationName": "Amsterdam",
+        "Longitude": "4.897975506"
+    },
+    {
+        "CountryId": 4,
+        "Latitude": "51.5073219",
+        "LocationName": "London",
+        "Longitude": "-0.1276474"
+    },
+    {
+        "CountryId": 5,
+        "Latitude": "41.3828939",
+        "LocationName": "Barcelona",
+        "Longitude": "2.1774322"
+    },
+    {
+        "CountryId": 2,
+        "Latitude": "41.894802",
+        "LocationName": "Rome",
+        "Longitude": "12.4853384"
+    },
+    {
+        "CountryId": 6,
+        "Latitude": "64.24450355",
+        "LocationName": "Reykjavik",
+        "Longitude": "-21.76926357"
+    },
+    {
+        "CountryId": 7,
+        "Latitude": "50.0874654",
+        "LocationName": "Prague",
+        "Longitude": "14.4212535"
+    },
+    {
+        "CountryId": 8,
+        "Latitude": "18.790876",
+        "LocationName": "Chiang Mai",
+        "Longitude": "98.988048"
+    },
+    {
+        "CountryId": 9,
+        "Latitude": "8.3405",
+        "LocationName": "Bali",
+        "Longitude": "115.092"
+    },
+    {
+        "CountryId": 10,
+        "Latitude": "3.1516636",
+        "LocationName": "Kuala Lumpur",
+        "Longitude": "101.6943028"
+    },
+    {
+        "CountryId": 10,
+        "Latitude": "2.2001524",
+        "LocationName": "Malacca",
+        "Longitude": "102.2507207"
+    },
+    {
+        "CountryId": 11,
+        "Latitude": "21.0294498",
+        "LocationName": "Hanoi",
+        "Longitude": "105.8544441"
+    },
+    {
+        "CountryId": 12,
+        "Latitude": "13.3617562",
+        "LocationName": "Siem Reap",
+        "Longitude": "103.8590321"
+    },
+    {
+        "CountryId": 12,
+        "Latitude": "11.568271",
+        "LocationName": "Phnom Penh",
+        "Longitude": "104.9224426"
+    },
+    {
+        "CountryId": 8,
+        "Latitude": "13.7542529",
+        "LocationName": "Bangkok",
+        "Longitude": "100.493087"
+    },
+    {
+        "CountryId": 9,
+        "Latitude": "-6.1753942",
+        "LocationName": "Jakarta",
+        "Longitude": "106.827183"
+    },
+    {
+        "CountryId": 11,
+        "Latitude": "10.7758439",
+        "LocationName": "Ho Chi Minh City",
+        "Longitude": "106.7017555"
+    },
+    {
+        "CountryId": 13,
+        "Latitude": "17.05943415",
+        "LocationName": "Yangon",
+        "Longitude": "96.11338955"
+    },
+    {
+        "CountryId": 14,
+        "Latitude": "14.6509905",
+        "LocationName": "Quezon City",
+        "Longitude": "121.0486155"
+    },
+    {
+        "CountryId": 14,
+        "Latitude": "14.5906216",
+        "LocationName": "Manila",
+        "Longitude": "120.9799696"
+    },
+    {
+        "CountryId": 15,
+        "Latitude": "4.4137155",
+        "LocationName": "Brunei",
+        "Longitude": "114.5653908"
+    },
+    {
+        "CountryId": 16,
+        "Latitude": "22.6203348",
+        "LocationName": "Kaohsiung",
+        "Longitude": "120.3120375"
+    },
+    {
+        "CountryId": 17,
+        "Latitude": "22.350627",
+        "LocationName": "Hong Kong SAR",
+        "Longitude": "114.1849161"
+    },
+    {
+        "CountryId": 18,
+        "Latitude": "22.1757605",
+        "LocationName": "Macau SAR",
+        "Longitude": "113.5514142"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "22.5445697",
+        "LocationName": "Shenzhen",
+        "Longitude": "114.0545346"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "23.1301964",
+        "LocationName": "Guangzhou",
+        "Longitude": "113.2592945"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "24.4758496",
+        "LocationName": "Xiamen",
+        "Longitude": "118.0746834"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "25.2777506",
+        "LocationName": "Guilin",
+        "Longitude": "110.291804"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "18.2534658",
+        "LocationName": "Sanya",
+        "Longitude": "109.5034392"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "25.0437977",
+        "LocationName": "Kunming",
+        "Longitude": "102.714338"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "39.906217",
+        "LocationName": "Beijing",
+        "Longitude": "116.3912757"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "31.2252985",
+        "LocationName": "Shanghai",
+        "Longitude": "121.4890497"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "34.3468421",
+        "LocationName": "Xi'an",
+        "Longitude": "108.9365887"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "30.2489634",
+        "LocationName": "Hangzhou",
+        "Longitude": "120.2052342"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "31.3016935",
+        "LocationName": "Suzhou",
+        "Longitude": "120.5810725"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "31.5776264",
+        "LocationName": "Wuxi",
+        "Longitude": "120.2951311"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "30.6624205",
+        "LocationName": "Chengdu",
+        "Longitude": "104.0633219"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "29.5585712",
+        "LocationName": "Chongqing",
+        "Longitude": "106.5492822"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "29.6553895",
+        "LocationName": "Lhasa",
+        "Longitude": "91.1704736"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "43.8244074",
+        "LocationName": "Urumuqi",
+        "Longitude": "87.6139038"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "41.8041094",
+        "LocationName": "Shenyang",
+        "Longitude": "123.4276363"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "43.8882168",
+        "LocationName": "Changchun",
+        "Longitude": "125.3182578"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "45.7656666",
+        "LocationName": "Harbin",
+        "Longitude": "126.6160584"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "32.0609736",
+        "LocationName": "Nanjing",
+        "Longitude": "118.7916458"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "36.0606904",
+        "LocationName": "Lanzhou",
+        "Longitude": "103.8305691"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "38.04",
+        "LocationName": "Shijiazhuang",
+        "Longitude": "114.47"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "36.6507007",
+        "LocationName": "Jinan",
+        "Longitude": "117.1140042"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "30.5951051",
+        "LocationName": "Wuhan",
+        "Longitude": "114.2999353"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "28.1979483",
+        "LocationName": "Changsha",
+        "Longitude": "112.97133"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "43.8882168",
+        "LocationName": "Changchun",
+        "Longitude": "125.318257N"
+    },
+    {
+        "CountryId": 19,
+        "Latitude": "26.8740866",
+        "LocationName": "Lijiang",
+        "Longitude": "100.2356332"
+    },
+    {
+        "CountryId": 20,
+        "Latitude": "40.7127281",
+        "LocationName": "New York City",
+        "Longitude": "-74.0060152"
+    },
+    {
+        "CountryId": 20,
+        "Latitude": "25.7742658",
+        "LocationName": "Miami",
+        "Longitude": "-80.1936589"
+    },
+    {
+        "CountryId": 20,
+        "Latitude": "34.0536909",
+        "LocationName": "Los Angeles",
+        "Longitude": "-118.2427666"
+    },
+    {
+        "CountryId": 20,
+        "Latitude": "37.7790262",
+        "LocationName": "San Francisco",
+        "Longitude": "-122.4199061"
+    },
+    {
+        "CountryId": 20,
+        "Latitude": "38.8948932",
+        "LocationName": "Washington D.C.",
+        "Longitude": "-77.0365529"
+    },
+    {
+        "CountryId": 20,
+        "Latitude": "41.8755616",
+        "LocationName": "Chicago",
+        "Longitude": "-87.6244212"
+    },
+    {
+        "CountryId": 20,
+        "Latitude": "39.9527237",
+        "LocationName": "Philadelphia",
+        "Longitude": "-75.1635262"
+    }
+]

@@ -2,6 +2,12 @@ import React from 'react';
 import fetch from 'isomorphic-unfetch';
 import './App.css';
 const geolocator = require('geolocation');
+const geolib = require('geolib');
+
+//WORKAROUND AS DATABASES CAN'T SEEM TO WORK
+const Countries = require('./db/Countries');
+const Locations = require('./db/Locations');
+
 const LOCATIONIQ_PRIVATE_TOKEN = 'pk.39b2a6066afe90744c8084ecd7ba931d';
 
 class SearchOptionButton extends React.Component {
@@ -26,11 +32,17 @@ class UserConfig extends React.Component {
 		}
 	}
 
+	filterLocations = () => {
+		if (this.state.option === 0) {
+			console.log('I am here')
+		}
+	}
+
 	processOption = (option) => {
 		console.log(`Option: ${option}`);
 		this.setState({
 			option: option,
-		})
+		}, this.filterLocations);
 	}
 
 	render() {
@@ -68,6 +80,11 @@ class App extends React.Component {
 			locationLong: '',
 			locationCountry: '',
   	}
+  }
+
+  componentDidMount () {
+  	console.log(Countries);
+  	console.log(Locations);
   }
 
 	getCurrentLocation = () => {

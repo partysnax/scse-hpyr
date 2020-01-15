@@ -1,0 +1,102 @@
+[
+    {
+        "CountryCode": "FR",
+        "CountryId": 1,
+        "CountryName": "France"
+    },
+    {
+        "CountryCode": "IT",
+        "CountryId": 2,
+        "CountryName": "Italy"
+    },
+    {
+        "CountryCode": "NL",
+        "CountryId": 3,
+        "CountryName": "Netherlands"
+    },
+    {
+        "CountryCode": "GB",
+        "CountryId": 4,
+        "CountryName": "England"
+    },
+    {
+        "CountryCode": "ES",
+        "CountryId": 5,
+        "CountryName": "Spain"
+    },
+    {
+        "CountryCode": "IE",
+        "CountryId": 6,
+        "CountryName": "Iceland"
+    },
+    {
+        "CountryCode": "CZ",
+        "CountryId": 7,
+        "CountryName": "Czech Republic"
+    },
+    {
+        "CountryCode": "TH",
+        "CountryId": 8,
+        "CountryName": "Thailand"
+    },
+    {
+        "CountryCode": "ID",
+        "CountryId": 9,
+        "CountryName": "Indonesia"
+    },
+    {
+        "CountryCode": "MY",
+        "CountryId": 10,
+        "CountryName": "Malaysia"
+    },
+    {
+        "CountryCode": "VN",
+        "CountryId": 11,
+        "CountryName": "Vietnam"
+    },
+    {
+        "CountryCode": "KH",
+        "CountryId": 12,
+        "CountryName": "Cambodia"
+    },
+    {
+        "CountryCode": "MM",
+        "CountryId": 13,
+        "CountryName": "Myanmar"
+    },
+    {
+        "CountryCode": "PH",
+        "CountryId": 14,
+        "CountryName": "Philippines"
+    },
+    {
+        "CountryCode": "BN",
+        "CountryId": 15,
+        "CountryName": "Brunei"
+    },
+    {
+        "CountryCode": "TW",
+        "CountryId": 16,
+        "CountryName": "Taiwan"
+    },
+    {
+        "CountryCode": "HK",
+        "CountryId": 17,
+        "CountryName": "Hong Kong"
+    },
+    {
+        "CountryCode": "MO",
+        "CountryId": 18,
+        "CountryName": "Macau"
+    },
+    {
+        "CountryCode": "CN",
+        "CountryId": 19,
+        "CountryName": "China"
+    },
+    {
+        "CountryCode": "US",
+        "CountryId": 20,
+        "CountryName": "USA"
+    }
+]
