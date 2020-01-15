@@ -29,13 +29,68 @@ class UserConfig extends React.Component {
 		super(props);
 		this.state = {
 			option: null,
+			locationList: [],
 		}
 	}
 
 	filterLocations = () => {
-		if (this.state.option === 0) {
-			console.log('I am here')
+		switch (this.state.option) {
+			case 0:
+				this.filterLocationsByCountry();
+				break;
+			case 1:
+				this.filterLocationsByDistance(200000);
+				break;
+			case 2:
+				this.filterLocationsByDistance(3000000);
+				break;
+			case 3:
+				this.filterLocationsByDistance(99999999999);
+				break;
+			default:
+				break;
 		}
+	}
+
+	filterLocationsByCountry = () => {
+		let locationList = [];
+		let targetCountry = Countries.find((value) => {
+			return value.CountryCode === this.props.country_code;
+		});
+		if (targetCountry) {
+			let targetCountryId = targetCountry.CountryId;
+			locationList = Locations.filter((value) => {
+				return value.CountryId === targetCountryId;
+			});
+		}
+
+		console.log(locationList);
+		this.setState({
+			locationList: locationList
+		});
+
+	}
+
+	filterLocationsByDistance = (maxDistance) => {
+		let locationList = [];
+		let targetLocation = {
+			latitude: this.props.lat,
+			longitude: this.props.long,
+		}
+		locationList = Locations.filter((value) => {
+			let valueCoords = {
+				latitude: value.Latitude,
+				longitude: value.Longitude,
+			};
+			let distance = geolib.getDistance(targetLocation, valueCoords);
+			return distance <= maxDistance && distance >= 10000;
+		})
+
+		console.log(locationList);
+		this.setState({
+			locationList: locationList
+		});
+		
 	}
 
 	processOption = (option) => {
@@ -61,7 +116,7 @@ class UserConfig extends React.Component {
 					<p>Location: {this.props.lat}, {this.props.long} ({country_code})</p>
 					<h3>Where would you like to search?</h3>
 					{(this.props.country_code) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
-					<SearchOptionButton onClick={this.processOption} id={1} text="Within 100 km (2 hour drive)"/>
+					<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
 					<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
 					<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
 				</div>
