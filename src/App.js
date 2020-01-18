@@ -119,6 +119,7 @@ class UserConfig extends React.Component {
 							<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
 							<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
 						</div>
+						
 				</div>
 			);
 		}

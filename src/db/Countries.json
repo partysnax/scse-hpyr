@@ -118,5 +118,10 @@
         "CountryCode": "KR",
         "CountryId": 24,
         "CountryName": "South Korea"
+    },
+    {
+        "CountryCode": "DE",
+        "CountryId": 25,
+        "CountryName": "Germany"
     }
 ]

@@ -302,13 +302,6 @@
     },
     {
         "CountryId": 19,
-        "LocationId":44,
-        "Latitude": "43.8882168",
-        "LocationName": "Changchun",
-        "Longitude": "125.3182578"
-    },
-    {
-        "CountryId": 19,
         "LocationId":45,
         "Latitude": "45.7656666",
         "LocationName": "Harbin",
@@ -361,7 +354,7 @@
         "LocationId":52,
         "Latitude": "43.8882168",
         "LocationName": "Changchun",
-        "Longitude": "125.318257N"
+        "Longitude": "125.318257"
     },
     {
         "CountryId": 19,
@@ -509,6 +502,12 @@
         "Latitude": "37.5665",
         "LocationName": "Seoul",
         "Longitude": "126.9780"
-    }
-  
+    },
+    {
+        "CountryId": 25,
+        "LocationId":74,
+        "Latitude": "52.5200",
+        "LocationName": "Berlin",
+        "Longitude": "13.4050"
+    }     
 ]
