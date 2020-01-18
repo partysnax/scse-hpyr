@@ -68,7 +68,7 @@ class Results extends React.Component {
 			//TODO: Implement a sorting system
 			return (
 				<div>
-					<table>
+					<table id = 'tablee'>
 						<thead>
 							<tr>
 									<th>Rank</th>
@@ -151,7 +151,7 @@ class UserConfig extends React.Component {
 							<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
 							<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
 						</div>
-						
+
 				</div>
 			);
 		}
@@ -397,9 +397,9 @@ class App extends React.Component {
 				</div>
 				<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
 				<Results locationData={this.state.locationData}/>
-	    </div>
-	  );
-  }
+	        </div>
+	    );
+   }
 }
 
 export default App;
