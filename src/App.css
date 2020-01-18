@@ -181,4 +181,10 @@
 
 .Error {
 	text-align: center;
+	font-weight: bold;
+  	font-size: 60px;
+}
+
+::placeholder {
+	font-size: 30px;
 }
