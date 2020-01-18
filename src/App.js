@@ -19,10 +19,41 @@ class Results extends React.Component {
 
 	}
 
+	row = (location) => {
+		return (
+			<tr key={location.LocationName}>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		);
+	}
+
 	render () {
+		//TODO: Implement a sorting system
+
 		return (
 			<div>
-				<p>(Results will be returned here)</p>
+				<table>
+					<thead>
+						<tr>
+								<th>Rank</th>
+								<th>Country</th>
+								<th>Location Name</th>
+								<th>Weather Score</th>
+								<th>Safety Score</th>
+								<th>Total Score</th>
+						</tr>
+					</thead>
+					<tbody>
+						{this.props.locationData.map((location) => {
+							return this.row(location);
+						})}
+					</tbody>
+				</table>
 			</div>
 		);
 	}
@@ -113,7 +144,7 @@ class App extends React.Component {
 				advisoryScore: advisoryScore[index]
 			}
 		})
-		//console.log(locationData);
+		console.log(locationData);
 		this.setState({
 			locationData: locationData
 		})
