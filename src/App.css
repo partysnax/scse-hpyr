@@ -134,8 +134,8 @@
 	align-content: space-between;
 }
 .container > button{
-	width: 40%;
+	width: 48%;
 	height: 100px;
 	background:white;
-	margin: 15px;
+	margin: 1% 1%;
 }
