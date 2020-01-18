@@ -19,6 +19,14 @@ class Results extends React.Component {
 
 	}
 
+	ping = () => {
+		console.log('peekaboo!')
+	}
+
+	pong = () => {
+		console.log('pookabee!')
+	}
+
 	row = (location) => {
 		let imgUrl = `https://www.countryflags.io/${location.countryCode}/shiny/64.png`;
 		return (
@@ -26,7 +34,7 @@ class Results extends React.Component {
 				<td>0</td>
 				<td><img src={imgUrl} alt={location.countryCode}/></td>
 				<td>{location.LocationName}</td>
-				<td>{Math.round(location.weatherScore*100)}</td>
+				<td onMouseEnter={this.ping} onMouseLeave={this.pong}>{Math.round(location.weatherScore*100)}</td>
 				<td>{Math.round(location.advisoryScore*100)}</td>
 				<td>{Math.round(location.totalScore*100)}</td>
 			</tr>
@@ -38,7 +46,7 @@ class Results extends React.Component {
 			//TODO: Implement a sorting system
 			return (
 				<div>
-					<table>
+					<table id = 'tablee'>
 						<thead>
 							<tr>
 									<th>Rank</th>
@@ -111,7 +119,10 @@ class UserConfig extends React.Component {
 			const countryCode = (this.props.countryCode) ? this.props.countryCode : 'None';
 			return (
 				<div>
-					<p>Location: {this.props.lat}, {this.props.long} ({countryCode})</p>
+					<iframe id="gmap-canvas"
+		  			src={`https://maps.google.com/maps?q=${this.props.lat}%2C%20${this.props.long}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
+		  			frameBorder="0"
+		  		/>
 					<div className = 'question'>Where would you like to search?</div>
 						<div className = 'container'>
 							{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
@@ -119,7 +130,7 @@ class UserConfig extends React.Component {
 							<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
 							<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
 						</div>
-						
+
 				</div>
 			);
 		}
@@ -365,9 +376,9 @@ class App extends React.Component {
 				</div>
 				<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
 				<Results locationData={this.state.locationData}/>
-	    </div>
-	  );
-  }
+	        </div>
+	    );
+   }
 }
 
 export default App;
