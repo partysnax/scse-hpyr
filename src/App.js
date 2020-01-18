@@ -93,7 +93,7 @@ class Results extends React.Component {
 								<th>Location Name</th>
 								<th>Weather Score</th>
 								<th>Safety Score</th>
-								<th>Total Score</th>
+								<th id ='important-score'>Total Score</th>
 							</tr>
 						</thead>
 						<tbody>
