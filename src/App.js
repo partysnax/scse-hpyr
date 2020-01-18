@@ -31,7 +31,7 @@ class WeatherBox extends React.Component {
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
-						<td key={index}>
+						<td className="cell" key={index}>
 							{day.data.high}
 						</td>
 					);
@@ -48,7 +48,7 @@ class WeatherBox extends React.Component {
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
-						<td key={index}>
+						<td className="cell" key={index}>
 							{day.data.low}
 						</td>
 					);
@@ -65,7 +65,7 @@ class WeatherBox extends React.Component {
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
-						<td key={index}>
+						<td className="cell" key={index}>
 							{day.data.precip}
 						</td>
 					);
@@ -92,8 +92,8 @@ class WeatherBox extends React.Component {
 		if (this.state.showTooltip) {
 			return (
 				<span className="weather-tooltip">
-					<table>
-						<tbody>
+					<table className="tooltip">
+						<tbody className="tooltip-main">
 							{this.listHigh()}
 							{this.listLow()}
 							{this.listPrecip()}
