@@ -502,6 +502,12 @@
         "Latitude": "37.5665",
         "LocationName": "Seoul",
         "Longitude": "126.9780"
-    }
-  
+    },
+    {
+        "CountryId": 25,
+        "LocationId":74,
+        "Latitude": "52.5200",
+        "LocationName": "Berlin",
+        "Longitude": "13.4050"
+    }     
 ]
