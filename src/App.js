@@ -16,15 +16,34 @@ const LOCATIONIQ_PRIVATE_TOKEN = 'pk.39b2a6066afe90744c8084ecd7ba931d';
 class Results extends React.Component {
 	constructor (props) {
 		super(props);
-
+		this.state = {
+			showTooltip: false
+		}
 	}
 
 	ping = () => {
-		console.log('peekaboo!')
+		console.log('peekaboo!');
+		this.setState({
+			showTooltip: true
+		})
 	}
 
 	pong = () => {
-		console.log('pookabee!')
+		console.log('pookabee!');
+		this.setState({
+			showTooltip: false
+		})
+	}
+
+	weatherTooltip = (weather) => {
+		if (this.state.showTooltip) {
+			return (
+				<span className="weather-tooltip" style={{position: 'relative'}}>
+					Tomorrow's weather:
+				</span>
+			);
+		}
+		else return null;
 	}
 
 	row = (location) => {
@@ -34,7 +53,10 @@ class Results extends React.Component {
 				<td>0</td>
 				<td><img src={imgUrl} alt={location.countryCode}/></td>
 				<td>{location.LocationName}</td>
-				<td onMouseEnter={this.ping} onMouseLeave={this.pong}>{Math.round(location.weatherScore*100)}</td>
+				<td onMouseEnter={this.ping} onMouseLeave={this.pong}>
+					{Math.round(location.weatherScore*100)}
+					{this.weatherTooltip(location.weather)}
+				</td>
 				<td>{Math.round(location.advisoryScore*100)}</td>
 				<td>{Math.round(location.totalScore*100)}</td>
 			</tr>
@@ -49,12 +71,12 @@ class Results extends React.Component {
 					<table id = 'tablee'>
 						<thead>
 							<tr>
-									<th>Rank</th>
-									<th>Country</th>
-									<th>Location Name</th>
-									<th>Weather Score</th>
-									<th>Safety Score</th>
-									<th>Total Score</th>
+								<th>Rank</th>
+								<th>Country</th>
+								<th>Location Name</th>
+								<th>Weather Score</th>
+								<th>Safety Score</th>
+								<th>Total Score</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -116,21 +138,19 @@ class UserConfig extends React.Component {
 			);
 		}
 		else {
-			const countryCode = (this.props.countryCode) ? this.props.countryCode : 'None';
 			return (
 				<div>
-					<iframe id="gmap-canvas"
+					<iframe id="gmap-canvas" title="Google maps"
 		  			src={`https://maps.google.com/maps?q=${this.props.lat}%2C%20${this.props.long}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
 		  			frameBorder="0"
 		  		/>
 					<div className = 'question'>Where would you like to search?</div>
-						<div className = 'container'>
-							{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
-							<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
-							<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
-							<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
-						</div>
-
+					<div className = 'container'>
+						{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
+						<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
+						<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
+						<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
+					</div>
 				</div>
 			);
 		}
