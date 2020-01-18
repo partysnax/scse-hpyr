@@ -140,9 +140,28 @@ class App extends React.Component {
 	////////////////////////////////////////////////
 	
 	compileData = () => {
-		let targetCountry = Countries.find((value) => {
-			return value.CountryCode === this.state.locationCountry;
-		});
+		let locationData = this.state.locationData;
+		locationData = locationData.map((location) => {
+			let targetCountry = Countries.find((value) => {
+				return value.CountryId === location.CountryId;
+			});
+			let countryCode = targetCountry.CountryCode;
+			let weatherScorePerDay = location.weather.map((day) => {
+				let tempScore = day.score.tempScore;
+				let precipScore = day.score.precipScore;
+				return (2*tempScore + precipScore)/3;
+			});
+			let weatherScoreSum = 0;
+			for (let i=0; i<weatherScorePerDay.length; i++) {
+				weatherScoreSum += weatherScorePerDay[i];
+			}
+			let weatherScore = Math.round(1000*weatherScoreSum/(weatherScorePerDay.length))/1000;
+			return { ...location,
+				countryCode: countryCode,
+				weatherScore: weatherScore
+			}
+		})
+		console.log(locationData)
 	}
 
 	////////////////////////////////////////////////
