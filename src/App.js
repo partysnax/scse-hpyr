@@ -3,7 +3,6 @@ import fetch from 'isomorphic-unfetch';
 import './App.css';
 import weatherScore from './tools/WeatherScore.js';
 import advisoryScore from './tools/AdvisoryScore.js';
-import './fonts/BowlbyOne-Regular.ttf'
 const geolocator = require('geolocation');
 const geolib = require('geolib');
 
@@ -13,19 +12,59 @@ const Locations = require('./db/Locations');
 
 const LOCATIONIQ_PRIVATE_TOKEN = 'pk.39b2a6066afe90744c8084ecd7ba931d';
 
-class Results extends React.Component {
+class WeatherBox extends React.Component {
 	constructor (props) {
 		super(props);
-
+		this.state = {
+			showTooltip: false
+		}
 	}
 
 	ping = () => {
-		console.log('peekaboo!')
+		console.log('peekaboo!');
+		console.log(this.props.location)
+		this.setState({
+			showTooltip: true
+		})
 	}
 
 	pong = () => {
-		console.log('pookabee!')
+		console.log('pookabee!');
+		this.setState({
+			showTooltip: false
+		})
 	}
+
+	weatherTooltip = (weather) => {
+		if (this.state.showTooltip) {
+			return (
+				<span className="weather-tooltip" style={{position: 'absolute'}}>
+					Placeholder
+				</span>
+			);
+		}
+		else return null;
+	}
+
+	render () {
+		return (
+			<td onMouseEnter={this.ping} onMouseLeave={this.pong}>
+				<div style={{position: 'relative'}}>
+					{Math.round(this.props.location.weatherScore*100)}
+					{this.weatherTooltip(this.props.location.weather)}
+				</div>
+			</td>
+		);
+	}
+}
+
+class Results extends React.Component {
+	/*constructor (props) {
+		super(props);
+		this.state = {
+			showTooltip: false
+		}
+	}*/
 
 	row = (location) => {
 		let imgUrl = `https://www.countryflags.io/${location.countryCode}/shiny/64.png`;
@@ -34,7 +73,7 @@ class Results extends React.Component {
 				<td>0</td>
 				<td><img src={imgUrl} alt={location.countryCode}/></td>
 				<td>{location.LocationName}</td>
-				<td onMouseEnter={this.ping} onMouseLeave={this.pong}>{Math.round(location.weatherScore*100)}</td>
+				<WeatherBox location={location} />
 				<td>{Math.round(location.advisoryScore*100)}</td>
 				<td>{Math.round(location.totalScore*100)}</td>
 			</tr>
@@ -49,12 +88,12 @@ class Results extends React.Component {
 					<table id = 'tablee'>
 						<thead>
 							<tr>
-									<th>Rank</th>
-									<th>Country</th>
-									<th>Location Name</th>
-									<th>Weather Score</th>
-									<th>Safety Score</th>
-									<th>Total Score</th>
+								<th>Rank</th>
+								<th>Country</th>
+								<th>Location Name</th>
+								<th>Weather Score</th>
+								<th>Safety Score</th>
+								<th>Total Score</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -120,23 +159,21 @@ class UserConfig extends React.Component {
 			);
 		}
 		else {
-			const countryCode = (this.props.countryCode) ? this.props.countryCode : 'None';
 			return (
 				<div>
 					<div className = "map">
-					<iframe id="gmap-canvas"
+					<iframe id="gmap-canvas" title="Google maps"
 		  			src={`https://maps.google.com/maps?q=${this.props.lat}%2C%20${this.props.long}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
 		  			frameBorder="0" height='100%' width = '100%'
 		  		/>
 		  				</div>
 					<div className = 'question'>Where would you like to search?</div>
-						<div className = 'container'>
-							{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
-							<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
-							<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
-							<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
-						</div>
-
+					<div className = 'container'>
+						{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
+						<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
+						<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
+						<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
+					</div>
 				</div>
 			);
 		}
@@ -370,9 +407,9 @@ class App extends React.Component {
 	  	return (
 		    <div className="App">
 				<div className="AppBanner" >
-		        	<h1 className="header">Should I Travel There{"\n"}</h1>
+		        	<h1 className="header">Should I Travel There?{"\n"}</h1>
 		        	<div className="text-muted">
-		        		<h4 className="subheader">your real-time travel recommendations!</h4>
+		        		<h4 className="subheader">your real time travel recommendations!</h4>
 					</div>		        	
 		        </div>		       
 		    	<input className = "Input" type="text" value={this.state.inputLocation} onChange={this.handleInputChange} />
