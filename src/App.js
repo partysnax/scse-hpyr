@@ -15,6 +15,49 @@ const Locations = require('./db/Locations');
 
 const LOCATIONIQ_PRIVATE_TOKEN = 'pk.39b2a6066afe90744c8084ecd7ba931d';
 
+class ScrollButton extends React.Component {
+	constructor (props) {
+		super(props);
+		this.state = {
+			down: true
+		}
+	}
+
+	scrollDown = () => {
+		this.setState({
+			down: true
+		})
+	}
+
+	scrollUp = () => {
+		this.setState({
+			down: false
+		})
+	}
+
+	render() {
+		const buttonStyle = {
+			position: 'fixed',
+			bottom: '3%',
+			right: '3%',
+			fontSize: '20px'
+		}
+		if (this.props.locationData.length > 0) {
+			if (this.state.down === true) {
+				return (
+					<a href="#tablee" style={buttonStyle} onClick={this.scrollDown}>v</a>
+				);
+			}
+			else {
+				return (
+					<a href="#" style={buttonStyle} onClick={this.scrollUp}>^</a>
+				);
+			}
+		}
+		else return null;
+	}
+}
+
 class WeatherBox extends React.Component {
 	constructor (props) {
 		super(props);
@@ -125,7 +168,7 @@ class Results extends React.Component {
 			<tr key={location.LocationId}>
 				<td>{index+1}</td>
 				<td><img src={imgUrl} alt={location.countryCode}/></td>
-				<td><a href={`https://www.lonelyplanet.com/search?q=${location.LocationName}`} target="_blank">{location.LocationName}</a></td>
+				<td><a href={`https://www.lonelyplanet.com/search?q=${location.LocationName}`} target="_blank" rel="noopenner noreferrer">{location.LocationName}</a></td>
 				<WeatherBox location={location} />
 				<td>{Math.round(location.advisoryScore*100)}</td>
 				<td>{Math.round(location.totalScore*100)}</td>
@@ -471,22 +514,23 @@ class App extends React.Component {
 	render() {
 	  	return (
 		    <div className="App">
-				<div className="AppBanner" >
-        			<h1 className="header">Should I Travel There?{"\n"}</h1>
-        			<div className="text-muted">
-        				<h4 className="subheader">your real time travel recommendations!</h4>
-					</div>		        	
+					<div className="AppBanner" >
+      			<h1 className="header">Should I Travel There?{"\n"}</h1>
+      			<div className="text-muted">
+      				<h4 className="subheader">your real time travel recommendations!</h4>
+						</div>		        	
 		    	</div>
-		        <div className="AppNonBanner">
+		      <div className="AppNonBanner">
 			    	<input className = "Input" type="text" placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} onKeyPress={this.handleKeyInput}/>
-					<div className = "buttonholder">
-						<button className = "button1" onClick={this.handleInput}> Submit </button>
-						<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
-					</div>
-					<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
-					<Results locationData={this.state.locationData}/>		        	
-		        </div>		       
-	        </div>
+						<div className = "buttonholder">
+							<button className = "button1" onClick={this.handleInput}> Submit </button>
+							<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
+						</div>
+						<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
+						<Results locationData={this.state.locationData}/>		        	
+		      </div>
+		      <ScrollButton locationData={this.state.locationData}/>	       
+	      </div>
 	    );
    }
 }
