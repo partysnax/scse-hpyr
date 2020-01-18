@@ -45,7 +45,16 @@ async function weatherScore (location) { //location object has CountryID, Locati
 	let result = await DarkSkyApi.loadForecast(coords);
 	let dayList = result.daily.data;
 	//console.log(dayList);
-	let dayScores = dayList.map(day => {return scorePerDay(day)});
+	let dayScores = dayList.map(day => {
+		return {
+			data: {
+				high: day.temperatureHigh,
+				low: day.temperatureLow,
+				precip: day.precipProbability
+			}, 
+			score: scorePerDay(day)
+		}
+	});
 	//console.log(dayScores);
 	return Promise.resolve(dayScores);
 }
