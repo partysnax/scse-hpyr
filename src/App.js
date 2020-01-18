@@ -24,7 +24,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					HI
+					<img src="./src/icons/High Temp.png" />
 				</td>
 				{this.props.location.weather.map((day) => {
 					return (
@@ -88,17 +88,7 @@ class WeatherBox extends React.Component {
 	weatherTooltip = (weather) => {
 		if (this.state.showTooltip) {
 			return (
-				<span className="weather-tooltip" style={{ //Add all these style attributes under .weather-tooltip in the css please
-					position: 'absolute', 
-					width: '200px', 
-					zIndex: 1, 
-					bottom: '100%', 
-					left: '50%', 
-					marginLeft: '-100px',
-					backgroundColor: 'white',
-					border: '1px solid black',
-					borderRadius: '5px'
-					}}>
+				<span className="weather-tooltip">
 					<table>
 						<tbody>
 							{this.listHigh()}
@@ -164,7 +154,7 @@ class Results extends React.Component {
 						</thead>
 						<tbody>
 							{this.props.locationData.map((location, index) => {
-								return this.row(location, index);
+								return this.row(location, index)
 							})}
 						</tbody>
 					</table>
@@ -235,7 +225,7 @@ class UserConfig extends React.Component {
 		  				</div>
 					<div className = 'question'>Where would you like to search?</div>
 					<div className = 'container'>
-						{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
+						{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within the country"/>) : null}
 						<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
 						<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
 						<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
