@@ -401,7 +401,7 @@ class App extends React.Component {
 	  	return (
 		    <div className="App">
 				<div className="AppBanner" >
-		        	<h1 className="header">Should I Travel There{"\n"}</h1>
+		        	<h1 className="header">Should I Travel There?{"\n"}</h1>
 		        	<div className="text-muted">
 		        		<h4 className="subheader">your real time travel recommendations!</h4>
 					</div>		        	

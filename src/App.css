@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Gentona';
-  src: local('Gentona'),url(./fonts/Rene Bieder - Gentona ExtraBold DEMO.ttf) format('truetype');
+  font-family: 'Open Sans';
+  src: local('Open Sans'),url(./fonts/OpenSans-ExtraBold.ttf) format('truetype');
 }
 .App {
 	background-color: white;
@@ -14,7 +14,7 @@
   	height: 100%;
   	display: flex;
   	flex-direction: column;
-	font-family: Gentona;
+	font-family: Open Sans;
 	font-style: normal;
  	font-weight: extr-bold;
 	color: #FFFFFF;
@@ -102,7 +102,7 @@
   	height: 100%;
   	display: flex;
   	flex-direction: column;
-	font-family: OpenSans;
+	font-family: Open Sans;
 	font-style: normal;
  	font-weight: extr-bold;
 	color: #FFFFFF;
@@ -154,17 +154,19 @@
 
 #tablee td, #tablee th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 8px;  
+  text-align: center;
+  font-weight: bold;
+  font-size: larger;
 }
 
-#tablee tr:nth-child(even){background-color: #f2f2f2;}
+#tablee tr:nth-child(odd){background-color: #f2f2f2;}
 
-#tablee tr:hover {background-color: #ddd;}
+#tablee tr:hover {background-color: #c6cdd0;}
 
 #tablee th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
   background-color: #6497B1;
   color: white;
 }
