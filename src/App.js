@@ -3,6 +3,9 @@ import fetch from 'isomorphic-unfetch';
 import './App.css';
 import weatherScore from './tools/WeatherScore.js';
 import advisoryScore from './tools/AdvisoryScore.js';
+import hitemp from './icons/High Temp.png';
+import lotemp from './icons/Low Temp.png'
+import prep from './icons/Prepcipitation.png'
 const geolocator = require('geolocation');
 const geolib = require('geolib');
 
@@ -24,15 +27,15 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					HI
+					<img className="tooltip-icon" src={hitemp} />
 				</td>
-				{this.props.location.weather.map((day) => {
+				{this.props.location.weather.map((day, index) => {
 					return (
-						<td>
+						<td key={index}>
 							{day.data.high}
 						</td>
 					);
-				})};
+				})}
 			</tr>
 		);
 	}
@@ -41,15 +44,15 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					LO
+					<img className="tooltip-icon" src={lotemp} />
 				</td>
-				{this.props.location.weather.map((day) => {
+				{this.props.location.weather.map((day, index) => {
 					return (
-						<td>
+						<td key={index}>
 							{day.data.low}
 						</td>
 					);
-				})};
+				})}
 			</tr>
 		);
 	}
@@ -58,15 +61,15 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					PR
+					<img className="tooltip-icon" src={prep} />
 				</td>
-				{this.props.location.weather.map((day) => {
+				{this.props.location.weather.map((day, index) => {
 					return (
-						<td>
+						<td key={index}>
 							{day.data.precip}
 						</td>
 					);
-				})};
+				})}
 			</tr>
 		);
 	}
@@ -88,17 +91,7 @@ class WeatherBox extends React.Component {
 	weatherTooltip = (weather) => {
 		if (this.state.showTooltip) {
 			return (
-				<span className="weather-tooltip" style={{ //Add all these style attributes under .weather-tooltip in the css please
-					position: 'absolute', 
-					width: '200px', 
-					zIndex: 1, 
-					bottom: '100%', 
-					left: '50%', 
-					marginLeft: '-100px',
-					backgroundColor: 'white',
-					border: '1px solid black',
-					borderRadius: '5px'
-					}}>
+				<span className="weather-tooltip">
 					<table>
 						<tbody>
 							{this.listHigh()}
@@ -125,12 +118,6 @@ class WeatherBox extends React.Component {
 }
 
 class Results extends React.Component {
-	/*constructor (props) {
-		super(props);
-		this.state = {
-			showTooltip: false
-		}
-	}*/
 
 	row = (location, index) => {
 		let imgUrl = `https://www.countryflags.io/${location.countryCode}/shiny/64.png`;
@@ -164,7 +151,7 @@ class Results extends React.Component {
 						</thead>
 						<tbody>
 							{this.props.locationData.map((location, index) => {
-								return this.row(location, index);
+								return this.row(location, index)
 							})}
 						</tbody>
 					</table>
@@ -235,7 +222,7 @@ class UserConfig extends React.Component {
 		  				</div>
 					<div className = 'question'>Where would you like to search?</div>
 					<div className = 'container'>
-						{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
+						{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within the country"/>) : null}
 						<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
 						<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
 						<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
@@ -471,17 +458,25 @@ class App extends React.Component {
 			location: inputLocation
 		}, this.locationLookup)
 	}
-
+	
+	handleKeyInput = (e) => {
+	  if(e.key === 'Enter'){
+	    let inputLocation = this.state.inputLocation;
+			this.setState({
+				location: inputLocation
+			}, this.locationLookup)
+	  }
+	}
 
 	render() {
 	  	return (
 		    <div className="App">
 				<div className="AppBanner" >
-		        	<h1 className="header">Should I Travel There?{"\n"}</h1>
-		        	<div className="text-muted">
-		        		<h4 className="subheader">real time travel recommendations!</h4>
+        			<h1 className="header">Should I Travel There?{"\n"}</h1>
+        			<div className="text-muted">
+        				<h4 className="subheader">your real time travel recommendations!</h4>
 					</div>		        	
-		        </div>
+		    	</div>
 		        <div className="AppNonBanner">
 			    	<input className = "Input" type="text" Placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} />
 					<div className = "buttonholder">

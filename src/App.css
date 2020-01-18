@@ -196,3 +196,15 @@
 ::placeholder {
 	font-size: 30px;
 }
+
+.weather-tooltip {
+	position: absolute; 
+	width: 100%; 
+	z-index: 1; 
+	bottom: 100%; 
+	left: 50%; 
+	margin-left: -100px;
+	background-color: white;
+	border: 1px solid black;
+	border-radius: 5px;
+}
