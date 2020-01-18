@@ -71,12 +71,12 @@ class Results extends React.Component {
 					<table id = 'tablee'>
 						<thead>
 							<tr>
-									<th>Rank</th>
-									<th>Country</th>
-									<th>Location Name</th>
-									<th>Weather Score</th>
-									<th>Safety Score</th>
-									<th>Total Score</th>
+								<th>Rank</th>
+								<th>Country</th>
+								<th>Location Name</th>
+								<th>Weather Score</th>
+								<th>Safety Score</th>
+								<th>Total Score</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -145,13 +145,12 @@ class UserConfig extends React.Component {
 		  			frameBorder="0"
 		  		/>
 					<div className = 'question'>Where would you like to search?</div>
-						<div className = 'container'>
-							{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
-							<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
-							<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
-							<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
-						</div>
-
+					<div className = 'container'>
+						{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
+						<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
+						<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
+						<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
+					</div>
 				</div>
 			);
 		}
