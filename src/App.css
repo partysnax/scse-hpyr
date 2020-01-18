@@ -179,12 +179,17 @@
 .map {
 	position: relative;
 	height: 430px;
-	width: 80%;
-	border-width: 1px; 
-	padding: 10% 10% 10% 10%;
+	width: 90%; 
+	padding: 5% 5% 5% 5%;
 	align-items: center;
 }
 
 .Error {
 	text-align: center;
+	font-weight: bold;
+  	font-size: 60px;
+}
+
+::placeholder {
+	font-size: 30px;
 }
