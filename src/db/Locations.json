@@ -302,13 +302,6 @@
     },
     {
         "CountryId": 19,
-        "LocationId":44,
-        "Latitude": "43.8882168",
-        "LocationName": "Changchun",
-        "Longitude": "125.3182578"
-    },
-    {
-        "CountryId": 19,
         "LocationId":45,
         "Latitude": "45.7656666",
         "LocationName": "Harbin",
