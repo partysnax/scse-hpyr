@@ -353,9 +353,9 @@ class App extends React.Component {
 	  	return (
 		    <div className="App">
 				<div className="AppBanner" >
-		        	<h1>Should I Travel There{"\n"}</h1>
+		        	<h1 className="header">Should I Travel There{"\n"}</h1>
 		        	<div className="text-muted">
-		        		<h4>your real-time travel recommendations!</h4>
+		        		<h4 className="subheader">your real-time travel recommendations!</h4>
 					</div>		        	
 		        </div>		       
 		    	<input className = "Input" type="text" value={this.state.inputLocation} onChange={this.handleInputChange} />
