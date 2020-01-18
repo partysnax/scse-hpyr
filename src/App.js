@@ -32,7 +32,7 @@ class WeatherBox extends React.Component {
 							{day.data.high}
 						</td>
 					);
-				})};
+				})}
 			</tr>
 		);
 	}
@@ -49,7 +49,7 @@ class WeatherBox extends React.Component {
 							{day.data.low}
 						</td>
 					);
-				})};
+				})}
 			</tr>
 		);
 	}
@@ -66,7 +66,7 @@ class WeatherBox extends React.Component {
 							{day.data.precip}
 						</td>
 					);
-				})};
+				})}
 			</tr>
 		);
 	}
