@@ -112,17 +112,23 @@ class UserConfig extends React.Component {
 		}
 		else if (this.props.lat === 'err') {
 			return (
-				<p>Location not found!</p>
+				<div className='Error'>
+					<p>
+						Location not found!
+					</p>
+					</div>
 			);
 		}
 		else {
 			const countryCode = (this.props.countryCode) ? this.props.countryCode : 'None';
 			return (
 				<div>
+					<div className = "map">
 					<iframe id="gmap-canvas"
 		  			src={`https://maps.google.com/maps?q=${this.props.lat}%2C%20${this.props.long}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
-		  			frameBorder="0"
+		  			frameBorder="0" height='100%' width = '100%'
 		  		/>
+		  				</div>
 					<div className = 'question'>Where would you like to search?</div>
 						<div className = 'container'>
 							{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}

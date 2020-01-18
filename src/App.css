@@ -168,3 +168,15 @@
   background-color: #6497B1;
   color: white;
 }
+
+.map {
+	position: relative;
+	height: 430px;
+	width: 800px;
+	left: 21.5%;
+	padding: 18px;
+}
+
+.Error {
+	text-align: center;
+}
