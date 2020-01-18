@@ -20,14 +20,15 @@ class Results extends React.Component {
 	}
 
 	row = (location) => {
+		let imgUrl = `https://www.countryflags.io/${location.countryCode}/shiny/64.png`;
 		return (
 			<tr key={location.LocationId}>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>0</td>
+				<td><img src={imgUrl} alt={location.countryCode}/></td>
+				<td>{location.LocationName}</td>
+				<td>{Math.round(location.weatherScore*100)}</td>
+				<td>{Math.round(location.advisoryScore*100)}</td>
+				<td>{Math.round(location.totalScore*100)}</td>
 			</tr>
 		);
 	}
@@ -136,16 +137,18 @@ class App extends React.Component {
   }
 
 	////////////////////////////////////////////////
-	// Prepare data
+	// Calculate and prepare data
 	////////////////////////////////////////////////
 	
-	compileData = () => {
-		let locationData = this.state.locationData;
-		locationData = locationData.map((location) => {
+	compileData = (locationData) => {
+		let locationDataNew = locationData.map((location) => {
+			//COUNTRY CODE
 			let targetCountry = Countries.find((value) => {
 				return value.CountryId === location.CountryId;
 			});
 			let countryCode = targetCountry.CountryCode;
+
+			//WEATHER SCORE
 			let weatherScorePerDay = location.weather.map((day) => {
 				let tempScore = day.score.tempScore;
 				let precipScore = day.score.precipScore;
@@ -156,32 +159,35 @@ class App extends React.Component {
 				weatherScoreSum += weatherScorePerDay[i];
 			}
 			let weatherScore = Math.round(1000*weatherScoreSum/(weatherScorePerDay.length))/1000;
+
+			//TOTAL SCORE
+			let totalScore = location.advisoryScore * weatherScore;
+
 			return { ...location,
 				countryCode: countryCode,
-				weatherScore: weatherScore
+				weatherScore: weatherScore,
+				totalScore: totalScore,
 			}
 		})
-		console.log(locationData)
+		return locationDataNew;
 	}
-
-	////////////////////////////////////////////////
-	// Calculate scores
-	////////////////////////////////////////////////
 
   calculateScores = async () => {
   	//TODO: Run async functions in parallel
 		const weatherScores = await this.calculateWeatherScore();
 		const advisoryScore = await this.calculateAdvisoryScore();
-		const locationData = this.state.locationList.map((location, index) => {
+		let locationData = this.state.locationList.map((location, index) => {
 			return {...location,
 				weather: weatherScores[index],
 				advisoryScore: advisoryScore[index]
 			}
 		})
+		console.log(locationData)
+		locationData = this.compileData(locationData);
 		console.log(locationData);
 		this.setState({
 			locationData: locationData
-		}, this.compileData)
+		})
 	}
 
 	calculateAdvisoryScore = async () => {
