@@ -427,7 +427,7 @@ class App extends React.Component {
 				<div className="AppBanner" >
 		        	<h1 className="header">Should I Travel There?{"\n"}</h1>
 		        	<div className="text-muted">
-		        		<h4 className="subheader">your real time travel recommendations!</h4>
+		        		<h4 className="subheader">real time travel recommendations!</h4>
 					</div>		        	
 		        </div>		       
 		    	<input className = "Input" type="text" Placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} />
