@@ -38,8 +38,22 @@ class WeatherBox extends React.Component {
 	weatherTooltip = (weather) => {
 		if (this.state.showTooltip) {
 			return (
-				<span className="weather-tooltip" style={{position: 'absolute'}}>
+				<span className="weather-tooltip" style={{
+					position: 'absolute', 
+					width: '200px', 
+					zIndex: 1, 
+					bottom: '100%', 
+					left: '50%', 
+					marginLeft: '-100px',
+					backgroundColor: 'white',
+					border: '1px solid black',
+					borderRadius: '5px'
+					}}>
 					Placeholder
+					Placeholder
+					How
+					Are
+					You?
 				</span>
 			);
 		}
@@ -66,11 +80,11 @@ class Results extends React.Component {
 		}
 	}*/
 
-	row = (location) => {
+	row = (location, index) => {
 		let imgUrl = `https://www.countryflags.io/${location.countryCode}/shiny/64.png`;
 		return (
 			<tr key={location.LocationId}>
-				<td>0</td>
+				<td>{index+1}</td>
 				<td><img src={imgUrl} alt={location.countryCode}/></td>
 				<td>{location.LocationName}</td>
 				<WeatherBox location={location} />
@@ -97,8 +111,8 @@ class Results extends React.Component {
 							</tr>
 						</thead>
 						<tbody>
-							{this.props.locationData.map((location) => {
-								return this.row(location);
+							{this.props.locationData.map((location, index) => {
+								return this.row(location, index);
 							})}
 						</tbody>
 					</table>
@@ -227,6 +241,10 @@ class App extends React.Component {
 				totalScore: totalScore,
 			}
 		})
+		locationDataNew.sort((a, b) => {
+			return (b.totalScore - a.totalScore) //Arrange from large to small
+		})
+		locationDataNew = locationDataNew.slice(0,Math.min(20,locationDataNew.length));
 		return locationDataNew;
 	}
 
@@ -415,7 +433,7 @@ class App extends React.Component {
 		    	<input className = "Input" type="text" value={this.state.inputLocation} onChange={this.handleInputChange} />
 				<div className = "buttonholder">
 					<button className = "button1" onClick={this.handleInput}> Submit </button>
-					<button className = "button1" onClick={this.getCurrentLocation}> Get Location </button>
+					<button className = "button1" onClick={this.getCurrentLocation}> Current Location </button>
 				</div>
 				<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
 				<Results locationData={this.state.locationData}/>
