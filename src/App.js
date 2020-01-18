@@ -15,49 +15,6 @@ const Locations = require('./db/Locations');
 
 const LOCATIONIQ_PRIVATE_TOKEN = 'pk.39b2a6066afe90744c8084ecd7ba931d';
 
-class ScrollButton extends React.Component {
-	constructor (props) {
-		super(props);
-		this.state = {
-			down: true
-		}
-	}
-
-	scrollDown = () => {
-		this.setState({
-			down: true
-		})
-	}
-
-	scrollUp = () => {
-		this.setState({
-			down: false
-		})
-	}
-
-	render() {
-		const buttonStyle = {
-			position: 'fixed',
-			bottom: '3%',
-			right: '3%',
-			fontSize: '20px'
-		}
-		if (this.props.locationData.length > 0) {
-			if (this.state.down === true) {
-				return (
-					<a href="#tablee" style={buttonStyle} onClick={this.scrollDown}>v</a>
-				);
-			}
-			else {
-				return (
-					<a href="#" style={buttonStyle} onClick={this.scrollUp}>^</a>
-				);
-			}
-		}
-		else return null;
-	}
-}
-
 class WeatherBox extends React.Component {
 	constructor (props) {
 		super(props);
@@ -528,8 +485,7 @@ class App extends React.Component {
 						</div>
 						<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
 						<Results locationData={this.state.locationData}/>		        	
-		      </div>
-		      <ScrollButton locationData={this.state.locationData}/>	       
+		      </div>     
 	      </div>
 	    );
    }
