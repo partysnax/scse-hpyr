@@ -112,7 +112,7 @@ class UserConfig extends React.Component {
 				<div>
 					<p>Location: {this.props.lat}, {this.props.long} ({countryCode})</p>
 					<h3>Where would you like to search?</h3>
-					{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
+					{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within the same country"/>) : null}
 					<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
 					<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
 					<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
