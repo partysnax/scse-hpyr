@@ -3,6 +3,9 @@ import fetch from 'isomorphic-unfetch';
 import './App.css';
 import weatherScore from './tools/WeatherScore.js';
 import advisoryScore from './tools/AdvisoryScore.js';
+import hitemp from './icons/High Temp.png';
+import lotemp from './icons/Low Temp.png'
+import prep from './icons/Prepcipitation.png'
 const geolocator = require('geolocation');
 const geolib = require('geolib');
 
@@ -24,7 +27,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					<img src="./src/icons/High Temp.png" />
+					<img className="tooltip-icon" src={hitemp} />
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
@@ -41,7 +44,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					LO
+					<img className="tooltip-icon" src={lotemp} />
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
@@ -58,7 +61,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					PR
+					<img className="tooltip-icon" src={prep} />
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
