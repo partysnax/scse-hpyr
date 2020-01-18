@@ -125,7 +125,7 @@ class Results extends React.Component {
 			<tr key={location.LocationId}>
 				<td>{index+1}</td>
 				<td><img src={imgUrl} alt={location.countryCode}/></td>
-				<td><a href={`https://www.lonelyplanet.com/search?q=${location.LocationName}`}>{location.LocationName}</a></td>
+				<td><a href={`https://www.lonelyplanet.com/search?q=${location.LocationName}`} target="_blank">{location.LocationName}</a></td>
 				<WeatherBox location={location} />
 				<td>{Math.round(location.advisoryScore*100)}</td>
 				<td>{Math.round(location.totalScore*100)}</td>
