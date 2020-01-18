@@ -3,7 +3,6 @@ import fetch from 'isomorphic-unfetch';
 import './App.css';
 import weatherScore from './tools/WeatherScore.js';
 import advisoryScore from './tools/AdvisoryScore.js';
-import './fonts/BowlbyOne-Regular.ttf'
 const geolocator = require('geolocation');
 const geolib = require('geolib');
 
@@ -13,7 +12,7 @@ const Locations = require('./db/Locations');
 
 const LOCATIONIQ_PRIVATE_TOKEN = 'pk.39b2a6066afe90744c8084ecd7ba931d';
 
-class Results extends React.Component {
+class WeatherBox extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
@@ -23,6 +22,7 @@ class Results extends React.Component {
 
 	ping = () => {
 		console.log('peekaboo!');
+		console.log(this.props.location)
 		this.setState({
 			showTooltip: true
 		})
@@ -38,13 +38,33 @@ class Results extends React.Component {
 	weatherTooltip = (weather) => {
 		if (this.state.showTooltip) {
 			return (
-				<span className="weather-tooltip" style={{position: 'relative'}}>
-					Tomorrow's weather:
+				<span className="weather-tooltip" style={{position: 'absolute'}}>
+					Placeholder
 				</span>
 			);
 		}
 		else return null;
 	}
+
+	render () {
+		return (
+			<td onMouseEnter={this.ping} onMouseLeave={this.pong}>
+				<div style={{position: 'relative'}}>
+					{Math.round(this.props.location.weatherScore*100)}
+					{this.weatherTooltip(this.props.location.weather)}
+				</div>
+			</td>
+		);
+	}
+}
+
+class Results extends React.Component {
+	/*constructor (props) {
+		super(props);
+		this.state = {
+			showTooltip: false
+		}
+	}*/
 
 	row = (location) => {
 		let imgUrl = `https://www.countryflags.io/${location.countryCode}/shiny/64.png`;
@@ -53,10 +73,7 @@ class Results extends React.Component {
 				<td>0</td>
 				<td><img src={imgUrl} alt={location.countryCode}/></td>
 				<td>{location.LocationName}</td>
-				<td onMouseEnter={this.ping} onMouseLeave={this.pong}>
-					{Math.round(location.weatherScore*100)}
-					{this.weatherTooltip(location.weather)}
-				</td>
+				<WeatherBox location={location} />
 				<td>{Math.round(location.advisoryScore*100)}</td>
 				<td>{Math.round(location.totalScore*100)}</td>
 			</tr>
