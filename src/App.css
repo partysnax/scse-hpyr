@@ -5,10 +5,11 @@
 .App {
 	background-color: white;
 	margin: 10px;
+	align-items: center;
 }
 .AppBanner{
 	margin: 20px;
-	background-color: #2D4A63 ;
+	background-color: #5DBCD2;
   	height: 100%;
   	display: flex;
   	flex-direction: column;
@@ -24,7 +25,7 @@
 .text-muted {
 	color: #B2C5D6;
 	text-align : right;
-	background-color: #2D4A63;
+	background-color: #5DBCD2;
 	/*font-style: italic;*/
 	font-size: 2rem;
 	padding-right: 20px;
@@ -72,14 +73,19 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 2px 4px;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   cursor: pointer;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .button1:hover{
   background-color: #2D4A63;
   color: white;
+}
+.buttonholder{
+	text-align: center;
+	margin-top: 10px;
 }

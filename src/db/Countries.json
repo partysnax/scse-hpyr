@@ -108,5 +108,15 @@
         "CountryCode": "LK",
         "CountryId": 22,
         "CountryName": "Sri Lanka"
+    },
+    {
+        "CountryCode": "JP",
+        "CountryId": 23,
+        "CountryName": "Japan"
+    },
+    {
+        "CountryCode": "KR",
+        "CountryId": 24,
+        "CountryName": "South Korea"
     }
 ]
