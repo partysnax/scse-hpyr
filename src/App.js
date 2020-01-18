@@ -5,7 +5,7 @@ import weatherScore from './tools/WeatherScore.js';
 import advisoryScore from './tools/AdvisoryScore.js';
 import hitemp from './icons/High Temp.png';
 import lotemp from './icons/Low Temp.png'
-import prep from './icons/Prepcipitation.png'
+import prep from './icons/Precipitation.png'
 const geolocator = require('geolocation');
 const geolib = require('geolib');
 
@@ -27,7 +27,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					<img className="tooltip-icon" src={hitemp} />
+					<img className="tooltip-icon" src={hitemp} alt="Temperature High"/>
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
@@ -44,7 +44,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					<img className="tooltip-icon" src={lotemp} />
+					<img className="tooltip-icon" src={lotemp} alt="Temperature Low"/>
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
@@ -61,7 +61,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					<img className="tooltip-icon" src={prep} />
+					<img className="tooltip-icon" src={prep} alt="Precipitation Rate" />
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
@@ -125,7 +125,7 @@ class Results extends React.Component {
 			<tr key={location.LocationId}>
 				<td>{index+1}</td>
 				<td><img src={imgUrl} alt={location.countryCode}/></td>
-				<td>{location.LocationName}</td>
+				<td><a href={`https://www.lonelyplanet.com/search?q=${location.LocationName}`}>{location.LocationName}</a></td>
 				<WeatherBox location={location} />
 				<td>{Math.round(location.advisoryScore*100)}</td>
 				<td>{Math.round(location.totalScore*100)}</td>
@@ -478,7 +478,7 @@ class App extends React.Component {
 					</div>		        	
 		    	</div>
 		        <div className="AppNonBanner">
-			    	<input className = "Input" type="text" Placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} />
+			    	<input className = "Input" type="text" placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} onKeyPress={this.handleKeyInput}/>
 					<div className = "buttonholder">
 						<button className = "button1" onClick={this.handleInput}> Submit </button>
 						<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
