@@ -265,8 +265,8 @@ class App extends React.Component {
 					</div>		        	
 		        </div>		       
 		    	<input className = "Input" type="text" value={this.state.inputLocation} onChange={this.handleInputChange} />
-				<button onClick={this.handleInput}> Submit </button>
-				<button onClick={this.getCurrentLocation}> Get Location </button>
+				<button className = "button1" onClick={this.handleInput}> Submit </button>
+				<button className = "button1" onClick={this.getCurrentLocation}> Get Location </button>
 				<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
 		    </div>
 		  );
