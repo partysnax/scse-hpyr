@@ -13,6 +13,21 @@ const Locations = require('./db/Locations');
 
 const LOCATIONIQ_PRIVATE_TOKEN = 'pk.39b2a6066afe90744c8084ecd7ba931d';
 
+class Results extends React.Component {
+	constructor (props) {
+		super(props);
+
+	}
+
+	render () {
+		return (
+			<div>
+				<p>(Results will be returned here)</p>
+			</div>
+		);
+	}
+}
+
 class SearchOptionButton extends React.Component {
 	handleClick = () => {
 		this.props.onClick(this.props.id);
