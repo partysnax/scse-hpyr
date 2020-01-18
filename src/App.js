@@ -20,8 +20,59 @@ class WeatherBox extends React.Component {
 		}
 	}
 
+	listHigh = () => {
+		return (
+			<tr>
+				<td>
+					HI
+				</td>
+				{this.props.location.weather.map((day) => {
+					return (
+						<td>
+							{day.data.high}
+						</td>
+					);
+				})};
+			</tr>
+		);
+	}
+
+	listLow = () => {
+		return (
+			<tr>
+				<td>
+					LO
+				</td>
+				{this.props.location.weather.map((day) => {
+					return (
+						<td>
+							{day.data.low}
+						</td>
+					);
+				})};
+			</tr>
+		);
+	}
+
+	listPrecip = () => {
+		return (
+			<tr>
+				<td>
+					PR
+				</td>
+				{this.props.location.weather.map((day) => {
+					return (
+						<td>
+							{day.data.precip}
+						</td>
+					);
+				})};
+			</tr>
+		);
+	}
+
+
 	ping = () => {
-		console.log('peekaboo!');
 		console.log(this.props.location)
 		this.setState({
 			showTooltip: true
@@ -29,7 +80,6 @@ class WeatherBox extends React.Component {
 	}
 
 	pong = () => {
-		console.log('pookabee!');
 		this.setState({
 			showTooltip: false
 		})
@@ -38,7 +88,7 @@ class WeatherBox extends React.Component {
 	weatherTooltip = (weather) => {
 		if (this.state.showTooltip) {
 			return (
-				<span className="weather-tooltip" style={{
+				<span className="weather-tooltip" style={{ //Add all these style attributes under .weather-tooltip in the css please
 					position: 'absolute', 
 					width: '200px', 
 					zIndex: 1, 
@@ -49,11 +99,13 @@ class WeatherBox extends React.Component {
 					border: '1px solid black',
 					borderRadius: '5px'
 					}}>
-					Placeholder
-					Placeholder
-					How
-					Are
-					You?
+					<table>
+						<tbody>
+							{this.listHigh()}
+							{this.listLow()}
+							{this.listPrecip()}
+						</tbody>
+					</table>
 				</span>
 			);
 		}
