@@ -79,6 +79,7 @@ class App extends React.Component {
 			locationLong: '',
 			locationCountry: '',
 			locationList: [],
+			locationData: [],
   	}
   }
 
@@ -96,7 +97,10 @@ class App extends React.Component {
 				advisoryScore: advisoryScore[index]
 			}
 		})
-		console.log(locationData);
+		//console.log(locationData);
+		this.setState({
+			locationData: locationData
+		})
 	}
 
 	calculateAdvisoryScore = async () => {
@@ -261,6 +265,7 @@ class App extends React.Component {
 				<button onClick={this.handleInput}> Submit </button>
 				<button onClick={this.getCurrentLocation}> Get Location </button>
 				<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
+				<Results locationData={this.state.locationData}/>
 	    </div>
 	  );
   }
