@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Gentona';
-  src: local('Gentona'),url(./fonts/Rene Bieder - Gentona ExtraBold DEMO.ttf) format('truetype');
+  font-family: 'Open Sans';
+  src: local('Open Sans'),url(./fonts/OpenSans-ExtraBold.ttf) format('truetype');
 }
 .App {
 	background-color: white;
@@ -14,7 +14,7 @@
   	height: 100%;
   	display: flex;
   	flex-direction: column;
-	font-family: Gentona;
+	font-family: Open Sans;
 	font-style: normal;
  	font-weight: extr-bold;
 	color: #FFFFFF;
@@ -102,7 +102,7 @@
   	height: 100%;
   	display: flex;
   	flex-direction: column;
-	font-family: OpenSans;
+	font-family: Open Sans;
 	font-style: normal;
  	font-weight: extr-bold;
 	color: #FFFFFF;

@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import './App.css';
 import weatherScore from './tools/WeatherScore.js';
 import advisoryScore from './tools/AdvisoryScore.js';
-import './fonts/BowlbyOne-Regular.ttf'
+import './fonts/OpenSans-ExtraBold.ttf'
 const geolocator = require('geolocation');
 const geolib = require('geolib');
 
