@@ -6,6 +6,7 @@
 	background-color: white;
 	margin: 10px;
 	align-items: center;
+
 }
 .AppBanner{
 	margin: 20px;
@@ -88,4 +89,37 @@
 .buttonholder{
 	text-align: center;
 	margin-top: 10px;
+}
+.question{
+	margin: 20px;
+	background-color: #5DBCD2;
+  	height: 100%;
+  	display: flex;
+  	flex-direction: column;
+	font-family: OpenSans;
+	font-style: normal;
+ 	font-weight: extr-bold;
+	color: #FFFFFF;
+	padding: 10px, 10px, 0px, 10px;
+ 	margin-top: 10px;
+ 	text-align: center;
+    font-size: 50px;
+}
+
+.distancechoices{
+	background-color: white; 
+	color: black; 
+	border: 3px solid #C0C8D0;
+	padding: 16px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	font-size: 16px;
+	margin: 2px 4px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+	cursor: pointer;
+	width: 300px;
 }
