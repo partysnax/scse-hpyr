@@ -3,6 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import './App.css';
 import weatherScore from './tools/WeatherScore.js';
 import advisoryScore from './tools/AdvisoryScore.js';
+import './fonts/BowlbyOne-Regular.ttf'
 const geolocator = require('geolocation');
 const geolib = require('geolib');
 
@@ -257,11 +258,17 @@ class App extends React.Component {
 		}, this.locationLookup)
 	}
 
-  render() {
-  	return (
-	    <div className="App">
-	      <h1>Should I Travel There</h1>
-	      <input type="text" value={this.state.inputLocation} onChange={this.handleInputChange} />
+
+	render() {
+	  	return (
+		    <div className="App">
+				<div className="AppBanner" >
+		        	<h1>Should I Travel There{"\n"}</h1>
+		        	<div className="text-muted">
+		        		<h4>your real-time travel recommendations!</h4>
+					</div>		        	
+		        </div>		       
+		    	<input className = "Input" type="text" value={this.state.inputLocation} onChange={this.handleInputChange} />
 				<button onClick={this.handleInput}> Submit </button>
 				<button onClick={this.getCurrentLocation}> Get Location </button>
 				<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
