@@ -352,5 +352,23 @@
         "Latitude": "39.9527237",
         "LocationName": "Philadelphia",
         "Longitude": "-75.1635262"
+    },
+    {
+        "CountryId": 9,
+        "Latitude": "1.1367",
+        "LocationName": "Bintan Island",
+        "Longitude": "104.4258"
+    },
+    {
+        "CountryId": 9,
+        "Latitude": "1.0828",
+        "LocationName": "Batam Island",
+        "Longitude": "104.0305"
+    },
+    {
+        "CountryId": 21,
+        "Latitude": "1.3521",
+        "LocationName": "Singapore",
+        "Longitude": "103.8198"
     }
 ]

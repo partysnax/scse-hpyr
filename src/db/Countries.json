@@ -98,5 +98,10 @@
         "CountryCode": "US",
         "CountryId": 20,
         "CountryName": "USA"
+    },
+    {
+        "CountryCode": "SG",
+        "CountryId": 21,
+        "CountryName": "Singapore"
     }
 ]

@@ -93,7 +93,7 @@ class App extends React.Component {
 		const advisoryScore = await this.calculateAdvisoryScore();
 		const locationData = this.state.locationList.map((location, index) => {
 			return {...location,
-				weatherScores: weatherScores[index],
+				weather: weatherScores[index],
 				advisoryScore: advisoryScore[index]
 			}
 		})

@@ -8,7 +8,7 @@ async function advisoryScore (location) {
 
 	let res = await axios.get(`https://www.travel-advisory.info/api?countrycode=${targetCountry.CountryCode}`)
 	let advisory = res.data.data[targetCountry.CountryCode].advisory.score;
-	let score = Math.round(Math.min(1, (5-advisory)*1/3)*1000)/1000;
+	let score = Math.round(Math.min(1, (1/9)*(advisory-5)**2)*1000)/1000;
 	return Promise.resolve(score);
 }
 
