@@ -19,12 +19,48 @@ class Results extends React.Component {
 
 	}
 
-	render () {
+	row = (location) => {
 		return (
-			<div>
-				<p>(Results will be returned here)</p>
-			</div>
+			<tr key={location.LocationName}>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
 		);
+	}
+
+	render () {
+		if (this.props.locationData.length > 0) { //IF NOT EMPTY
+			//TODO: Implement a sorting system
+			return (
+				<div>
+					<table>
+						<thead>
+							<tr>
+									<th>Rank</th>
+									<th>Country</th>
+									<th>Location Name</th>
+									<th>Weather Score</th>
+									<th>Safety Score</th>
+									<th>Total Score</th>
+							</tr>
+						</thead>
+						<tbody>
+							{this.props.locationData.map((location) => {
+								return this.row(location);
+							})}
+						</tbody>
+					</table>
+				</div>
+			);
+		}
+
+		else { //IF EMPTY
+			return null;
+		}
 	}
 }
 
@@ -100,6 +136,16 @@ class App extends React.Component {
   }
 
 	////////////////////////////////////////////////
+	// Prepare data
+	////////////////////////////////////////////////
+	
+	compileData = () => {
+		let targetCountry = Countries.find((value) => {
+			return value.CountryCode === this.state.locationCountry;
+		});
+	}
+
+	////////////////////////////////////////////////
 	// Calculate scores
 	////////////////////////////////////////////////
 
@@ -113,10 +159,10 @@ class App extends React.Component {
 				advisoryScore: advisoryScore[index]
 			}
 		})
-		//console.log(locationData);
+		console.log(locationData);
 		this.setState({
 			locationData: locationData
-		})
+		}, this.compileData)
 	}
 
 	calculateAdvisoryScore = async () => {
