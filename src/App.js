@@ -125,12 +125,6 @@ class WeatherBox extends React.Component {
 }
 
 class Results extends React.Component {
-	/*constructor (props) {
-		super(props);
-		this.state = {
-			showTooltip: false
-		}
-	}*/
 
 	row = (location, index) => {
 		let imgUrl = `https://www.countryflags.io/${location.countryCode}/shiny/64.png`;
@@ -471,18 +465,26 @@ class App extends React.Component {
 			location: inputLocation
 		}, this.locationLookup)
 	}
-
+	
+	handleKeyInput = (e) => {
+	  if(e.key === 'Enter'){
+	    let inputLocation = this.state.inputLocation;
+			this.setState({
+				location: inputLocation
+			}, this.locationLookup)
+	  }
+	}
 
 	render() {
 	  	return (
 		    <div className="App">
 				<div className="AppBanner" >
-		        	<h1 className="header">Should I Travel There?{"\n"}</h1>
-		        	<div className="text-muted">
-		        		<h4 className="subheader">your real time travel recommendations!</h4>
+        	<h1 className="header">Should I Travel There?{"\n"}</h1>
+        	<div className="text-muted">
+        		<h4 className="subheader">your real time travel recommendations!</h4>
 					</div>		        	
-		        </div>		       
-		    	<input className = "Input" type="text" Placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} />
+        </div>
+        <input className = "Input" type="text" Placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} onKeyPress={this.handleKeyInput}/>
 				<div className = "buttonholder">
 					<button className = "button1" onClick={this.handleInput}> Submit </button>
 					<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
