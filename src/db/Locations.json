@@ -312,6 +312,17 @@
         "Longitude": "100.2356332"
     },
     {
+        "CountryId": 19,
+        "Latitude": "29.9958",
+        "LocationName": "Shaoxing",
+        "Longitude": "120.5861"
+    },
+    {
+        "Latitude": "29.8683",
+        "LocationName": "Ningbo",
+        "Longitude": "121.5440"
+    },
+    {
         "CountryId": 20,
         "Latitude": "40.7127281",
         "LocationName": "New York City",
@@ -370,5 +381,11 @@
         "Latitude": "1.3521",
         "LocationName": "Singapore",
         "Longitude": "103.8198"
+    },
+    {
+        "CountryId": 22,
+        "Latitude": "6.9271",
+        "LocationName": "Colombo",
+        "Longitude": "79.8612"
     }
 ]
