@@ -478,7 +478,7 @@ class App extends React.Component {
 					</div>		        	
 		    	</div>
 		        <div className="AppNonBanner">
-			    	<input className = "Input" type="text" Placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} />
+			    	<input className = "Input" type="text" placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} onKeyPress={this.handleKeyInput}/>
 					<div className = "buttonholder">
 						<button className = "button1" onClick={this.handleInput}> Submit </button>
 						<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
