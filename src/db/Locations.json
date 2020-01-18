@@ -364,6 +364,11 @@
         "Latitude": "1.0828",
         "LocationName": "Batam Island",
         "Longitude": "104.0305"
+    },
+    {
+        "CountryId": 21,
+        "Latitude": "1.3521",
+        "LocationName": "Singapore",
+        "Longitude": "103.8198"
     }
-
 ]
