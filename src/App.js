@@ -71,10 +71,11 @@ class SearchOptionButton extends React.Component {
 	}
 
 	render() {
+		let buttonId = `search-option-${this.props.id}`
 		return (
-			<button className = 'distancechoices' onClick={this.handleClick}>
-				{this.props.text}
-			</button>
+				<button className = 'distancechoices' id={buttonId} onClick={this.handleClick}>
+					{this.props.text}
+				</button>
 		);
 	}
 }
@@ -112,10 +113,12 @@ class UserConfig extends React.Component {
 				<div>
 					<p>Location: {this.props.lat}, {this.props.long} ({countryCode})</p>
 					<div className = 'question'>Where would you like to search?</div>
-					{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
-						<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
-						<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
-						<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
+						<div className = 'container'>
+							{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within my country"/>) : null}
+							<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>
+							<SearchOptionButton onClick={this.processOption} id={2} text="Within 3000 km (4 hour flight)"/>
+							<SearchOptionButton onClick={this.processOption} id={3} text="Anywhere!"/>
+						</div>
 				</div>
 			);
 		}
