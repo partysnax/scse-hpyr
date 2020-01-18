@@ -13,6 +13,21 @@ const Locations = require('./db/Locations');
 
 const LOCATIONIQ_PRIVATE_TOKEN = 'pk.39b2a6066afe90744c8084ecd7ba931d';
 
+class Results extends React.Component {
+	constructor (props) {
+		super(props);
+
+	}
+
+	render () {
+		return (
+			<div>
+				<p>(Results will be returned here)</p>
+			</div>
+		);
+	}
+}
+
 class SearchOptionButton extends React.Component {
 	handleClick = () => {
 		this.props.onClick(this.props.id);
@@ -80,6 +95,7 @@ class App extends React.Component {
 			locationLong: '',
 			locationCountry: '',
 			locationList: [],
+			locationData: [],
   	}
   }
 
@@ -97,7 +113,10 @@ class App extends React.Component {
 				advisoryScore: advisoryScore[index]
 			}
 		})
-		console.log(locationData);
+		//console.log(locationData);
+		this.setState({
+			locationData: locationData
+		})
 	}
 
 	calculateAdvisoryScore = async () => {
@@ -268,9 +287,10 @@ class App extends React.Component {
 				<button className = "button1" onClick={this.handleInput}> Submit </button>
 				<button className = "button1" onClick={this.getCurrentLocation}> Get Location </button>
 				<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
-		    </div>
-		  );
-	}
+				<Results locationData={this.state.locationData}/>
+	    </div>
+	  );
+  }
 }
 
 export default App;

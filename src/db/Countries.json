@@ -103,5 +103,10 @@
         "CountryCode": "SG",
         "CountryId": 21,
         "CountryName": "Singapore"
+    },
+    {
+        "CountryCode": "LK",
+        "CountryId": 22,
+        "CountryName": "Sri Lanka"
     }
 ]
