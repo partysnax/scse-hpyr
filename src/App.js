@@ -41,7 +41,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					HI
+					LO
 				</td>
 				{this.props.location.weather.map((day) => {
 					return (
@@ -58,7 +58,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					HI
+					PR
 				</td>
 				{this.props.location.weather.map((day) => {
 					return (
