@@ -3,6 +3,9 @@ import fetch from 'isomorphic-unfetch';
 import './App.css';
 import weatherScore from './tools/WeatherScore.js';
 import advisoryScore from './tools/AdvisoryScore.js';
+import hitemp from './icons/High Temp.png';
+import lotemp from './icons/Low Temp.png'
+import prep from './icons/Prepcipitation.png'
 const geolocator = require('geolocation');
 const geolib = require('geolib');
 
@@ -24,7 +27,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					<img src="./src/icons/High Temp.png" />
+					<img className="tooltip-icon" src={hitemp} />
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
@@ -41,7 +44,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					LO
+					<img className="tooltip-icon" src={lotemp} />
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
@@ -58,7 +61,7 @@ class WeatherBox extends React.Component {
 		return (
 			<tr>
 				<td>
-					PR
+					<img className="tooltip-icon" src={prep} />
 				</td>
 				{this.props.location.weather.map((day, index) => {
 					return (
@@ -469,18 +472,20 @@ class App extends React.Component {
 	  	return (
 		    <div className="App">
 				<div className="AppBanner" >
-        	<h1 className="header">Should I Travel There?{"\n"}</h1>
-        	<div className="text-muted">
-        		<h4 className="subheader">your real time travel recommendations!</h4>
+        			<h1 className="header">Should I Travel There?{"\n"}</h1>
+        			<div className="text-muted">
+        				<h4 className="subheader">your real time travel recommendations!</h4>
 					</div>		        	
-        </div>
-        <input className = "Input" type="text" placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} onKeyPress={this.handleKeyInput}/>
-				<div className = "buttonholder">
-					<button className = "button1" onClick={this.handleInput}> Submit </button>
-					<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
-				</div>
-				<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
-				<Results locationData={this.state.locationData}/>
+		    	</div>
+		        <div className="AppNonBanner">
+			    	<input className = "Input" type="text" Placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} />
+					<div className = "buttonholder">
+						<button className = "button1" onClick={this.handleInput}> Submit </button>
+						<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
+					</div>
+					<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
+					<Results locationData={this.state.locationData}/>		        	
+		        </div>		       
 	        </div>
 	    );
    }
