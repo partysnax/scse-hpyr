@@ -21,7 +21,7 @@ class Results extends React.Component {
 
 	row = (location) => {
 		return (
-			<tr key={location.LocationName}>
+			<tr key={location.LocationId}>
 				<td></td>
 				<td></td>
 				<td></td>
