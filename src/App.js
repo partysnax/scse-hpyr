@@ -274,7 +274,7 @@ class UserConfig extends React.Component {
 		  			frameBorder="0" height='100%' width = '100%'
 		  		/>
 		  				</div>
-					<div className = 'input'>Where would you like to search?</div>
+					<div className = 'liketosearch' >Where would you like to search?</div>
 					<div className = 'container'>
 						{(this.props.countryCode) ? (<SearchOptionButton onClick={this.processOption} id={0} text="Within the country"/>) : null}
 						<SearchOptionButton onClick={this.processOption} id={1} text="Within 200 km (3 hour drive)"/>

@@ -92,7 +92,25 @@
   font-family: sans-serif;
   font-weight: medium;
 }
-
+.liketosearch {
+	margin: 20px;
+	background-color: #5DBCD2;
+  	height: 100%;
+  	display: flex;
+  	flex-direction: column;
+	font-family: Open Sans;
+	font-style: normal;
+ 	font-weight: extr-bold;
+	color: #FFFFFF;
+	padding: 0px, 10px, 0px, 10px;
+ 	margin-top: 10px;
+ 	text-align: center;
+    font-size: 50px;
+    padding-top: 30px;
+  	padding-right: 0px;
+  	padding-bottom: 30px;
+  	padding-left: 0px;
+}
 .button1 {
 	background-color: white; 
 	color: black; 
