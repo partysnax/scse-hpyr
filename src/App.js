@@ -185,7 +185,6 @@ class Results extends React.Component {
 
 	render () {
 		if (this.props.locationData.length > 0) { //IF NOT EMPTY
-			//TODO: Implement a sorting system
 			return (
 				<div>
 					<table id = 'tablee'>
