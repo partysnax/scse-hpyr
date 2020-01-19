@@ -230,3 +230,51 @@
 .tooltip-trigger{
 	border-bottom: 1px dotted black;
 }
+
+.temp-color-vvcold {
+	background-color: #5b92ff;
+}
+
+.temp-color-vcold {
+	background-color: #89c1ff;
+}
+
+.temp-color-cold {
+	background-color: #d3f1ff;
+}
+
+.temp-color-normal {
+	background-color: #ffffff;
+}
+
+.temp-color-hot {
+	background-color: #fff5d1;
+}
+
+.temp-color-vhot {
+	background-color: #ffab89;
+}
+
+.temp-color-vvhot {
+	background-color: #ff7f65;
+}
+
+.precip-color-vhigh {
+	background-color: #bbbbff;
+}
+
+.precip-color-high {
+	background-color: #ccccff;
+}
+
+.precip-color-mid {
+	background-color: #ddddff;
+}
+
+.precip-color-low {
+	background-color: #eeeeff;
+}
+
+.precip-color-vlow {
+	background-color: #ffffff;
+}

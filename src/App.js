@@ -23,6 +23,30 @@ class WeatherBox extends React.Component {
 		}
 	}
 
+	tempColor = (temp) => {
+		if (temp <= -10) {
+			return 'vvcold';
+		}
+		else if (temp <= 10) {
+			return 'vcold';
+		}
+		else if (temp <= 15) {
+			return 'cold';
+		}
+		else if (temp <= 25) {
+			return 'normal';
+		}
+		else if (temp <= 30) {
+			return 'hot';
+		}
+		else if (temp <= 40) {
+			return 'vhot';
+		}
+		else {
+			return 'vvhot';
+		}
+	}
+
 	listHigh = () => {
 		return (
 			<tr>
@@ -30,9 +54,11 @@ class WeatherBox extends React.Component {
 					<img className="tooltip-icon" src={hitemp} alt="Temperature High"/>
 				</td>
 				{this.props.location.weather.map((day, index) => {
+					let temp = Math.round(day.data.high*10)/10;
+					let tempStyle = `temp-color-${this.tempColor(temp)}`;
 					return (
-						<td className="cell" key={index}>
-							{Math.round(day.data.high*10)/10}
+						<td className={`cell ${tempStyle}`} key={index}>
+							{temp}
 						</td>
 					);
 				})}
@@ -47,14 +73,34 @@ class WeatherBox extends React.Component {
 					<img className="tooltip-icon" src={lotemp} alt="Temperature Low"/>
 				</td>
 				{this.props.location.weather.map((day, index) => {
+					let temp = Math.round(day.data.low*10)/10;
+					let tempStyle = `temp-color-${this.tempColor(temp)}`;
 					return (
-						<td className="cell" key={index}>
-							{Math.round(day.data.low*10)/10}
+						<td className={`cell ${tempStyle}`} key={index}>
+							{temp}
 						</td>
 					);
 				})}
 			</tr>
 		);
+	}
+
+	precipColor = (precip) => {
+		if (precip >= 80) {
+			return 'vhigh';
+		}
+		else if (precip >= 60) {
+			return 'high';
+		}
+		else if (precip >= 40) {
+			return 'mid';
+		}
+		else if (precip >= 20) {
+			return 'low';
+		}
+		else {
+			return 'vlow';
+		}
 	}
 
 	listPrecip = () => {
@@ -64,9 +110,11 @@ class WeatherBox extends React.Component {
 					<img className="tooltip-icon" src={prep} alt="Precipitation Rate" />
 				</td>
 				{this.props.location.weather.map((day, index) => {
+					let precip = Math.round(day.data.precip*100);
+					let precipStyle = `precip-color-${this.precipColor(precip)}`;
 					return (
-						<td className="cell" key={index}>
-							{Math.round(day.data.precip*100)}%
+						<td className={`cell ${precipStyle}`} key={index}>
+							{precip}%
 						</td>
 					);
 				})}
