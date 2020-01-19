@@ -178,7 +178,7 @@ class Results extends React.Component {
 				<td><a href={`https://www.lonelyplanet.com/search?q=${location.LocationName}`} target="_blank" rel="noopenner noreferrer">{location.LocationName}</a></td>
 				<WeatherBox location={location} />
 				<td>{Math.round(location.advisoryScore*100)}</td>
-				<td>{Math.round(location.totalScore*100)}</td>
+				<td className ='important-score'>{Math.round(location.totalScore*100)}</td>
 			</tr>
 		);
 	}
@@ -196,7 +196,7 @@ class Results extends React.Component {
 								<th>Location Name</th>
 								<th>Weather Score</th>
 								<th>Safety Score</th>
-								<th id ='important-score'>Total Score</th>
+								<th>Total Score</th>
 							</tr>
 						</thead>
 						<tbody>

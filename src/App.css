@@ -179,8 +179,8 @@
   background-color: #6497B1;
   color: white;
 }
-#important-score {
-	font-weight: bolder;
+td.important-score {
+	font-size: 38px !important;
 }
 .map {
 	position: relative;
@@ -232,15 +232,15 @@
 }
 
 .temp-color-vvcold {
-	background-color: #5b92ff;
+	background-color: #bbbbff;
 }
 
 .temp-color-vcold {
-	background-color: #89c1ff;
+	background-color: #cfcfff;
 }
 
 .temp-color-cold {
-	background-color: #d3f1ff;
+	background-color: #eeeeff;
 }
 
 .temp-color-normal {
@@ -260,19 +260,19 @@
 }
 
 .precip-color-vhigh {
-	background-color: #bbbbff;
+	background-color: #216bff;
 }
 
 .precip-color-high {
-	background-color: #ccccff;
+	background-color: #5b92ff;
 }
 
 .precip-color-mid {
-	background-color: #ddddff;
+	background-color: #89c1ff;
 }
 
 .precip-color-low {
-	background-color: #eeeeff;
+	background-color: #d3f1ff;
 }
 
 .precip-color-vlow {
