@@ -373,7 +373,7 @@ class App extends React.Component {
 				longitude: value.Longitude,
 			};
 			let distance = geolib.getDistance(targetLocation, valueCoords);
-			return distance <= maxDistance && distance >= 10000;
+			return distance <= maxDistance;
 		})
 
 		console.log(locationList);
