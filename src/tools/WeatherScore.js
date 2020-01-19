@@ -1,5 +1,5 @@
 import DarkSkyApi from 'dark-sky-api';
-DarkSkyApi.apiKey = '1444e3bb3894482c429e031028b20c0a';
+DarkSkyApi.apiKey = '29f3d8764adeaf07d2d768d3c26c69cf';
 DarkSkyApi.units = 'ca';
 
 function scorePerTemp (temp) {
