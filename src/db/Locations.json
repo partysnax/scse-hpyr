@@ -509,5 +509,19 @@
         "Latitude": "52.5200",
         "LocationName": "Berlin",
         "Longitude": "13.4050"
-    }     
+    },
+    {
+        "CountryId": 26,
+        "LocationId":75,
+        "Latitude": "49.2827",
+        "LocationName": "Vancouver",
+        "Longitude": "-123.1207"
+    },
+    {
+        "CountryId": 26,
+        "LocationId":76,
+        "Latitude": "43.6532",
+        "LocationName": "Toronto",
+        "Longitude": "79.3832"
+    }
 ]
