@@ -109,7 +109,9 @@ class WeatherBox extends React.Component {
 		return (
 			<td onMouseEnter={this.ping} onMouseLeave={this.pong}>
 				<div style={{position: 'relative'}}>
-					{Math.round(this.props.location.weatherScore*100)}
+					<span className="tooltip-trigger">
+						{Math.round(this.props.location.weatherScore*100)}
+					</span>
 					{this.weatherTooltip(this.props.location.weather)}
 				</div>
 			</td>

@@ -226,3 +226,7 @@
 	height: 50px;
 	width: 50px;
 }
+
+.tooltip-trigger{
+	border-bottom: 1px dotted black;
+}
