@@ -196,7 +196,7 @@ class Results extends React.Component {
 								<th>
 									<span>
 										Weather Score&nbsp;
-										<img src="https://cdn3.iconfinder.com/data/icons/bold-blue-glyphs-free-samples/32/Info_Circle_Symbol_Information_Letter-512.png" title="Mouseover each cell for the weather this week" style={{height: '20px', width: '20px'}}/>
+										<img src="https://cdn3.iconfinder.com/data/icons/bold-blue-glyphs-free-samples/32/Info_Circle_Symbol_Information_Letter-512.png" title="Mouseover each cell for the weather this week" style={{height: '20px', width: '20px'}} alt="Info"/>
 									</span>
 								</th>
 								<th>Safety Score</th>
