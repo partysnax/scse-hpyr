@@ -32,7 +32,7 @@ class WeatherBox extends React.Component {
 				{this.props.location.weather.map((day, index) => {
 					return (
 						<td className="cell" key={index}>
-							{day.data.high}
+							{Math.round(day.data.high*10)/10}
 						</td>
 					);
 				})}
@@ -49,7 +49,7 @@ class WeatherBox extends React.Component {
 				{this.props.location.weather.map((day, index) => {
 					return (
 						<td className="cell" key={index}>
-							{day.data.low}
+							{Math.round(day.data.low*10)/10}
 						</td>
 					);
 				})}
@@ -66,7 +66,7 @@ class WeatherBox extends React.Component {
 				{this.props.location.weather.map((day, index) => {
 					return (
 						<td className="cell" key={index}>
-							{day.data.precip}
+							{Math.round(day.data.precip*100)}%
 						</td>
 					);
 				})}
