@@ -63,17 +63,36 @@
 }
 .Input{
 	display: block;
-	flex-direction: row;
-	flex:1;
 	text-align: center;
-	justify-content: center;
 	width: 50%;
 	font-family: sans-serif;
 	font-size: 40px;
 	padding: 12px 20px;
     margin: 0 auto;
     box-sizing: border-box;
+    -webkit-transition-duration: 0.2s; /* Safari */
+	transition-duration: 0.2s;
+	cursor: pointer;
+	border-style: groove;
+	border-radius: 5px;
+	border-color: #ffffff;
+	background-color: #f0f2f5;
+	border:  solid;
+	border-color: #ffffff;
 }
+.Input:hover{
+	background-color: #ffffff;
+  	color: black;
+  	border: 20px;
+  	border-color: black ;
+  	border: solid;
+}
+::placeholder {
+  color: #071730;
+  font-family: sans-serif;
+  font-weight: medium;
+}
+
 .button1 {
 	background-color: white; 
 	color: black; 
@@ -137,7 +156,7 @@
 .distancechoices:hover{
     background-color: #2D4A63;
     color: white;
-}
+} 
 .container{
 	display:flex;
 	flex-direction: row;
@@ -193,7 +212,7 @@ td.important-score {
 .Error {
 	text-align: center;
 	font-weight: bold;
-  	font-size: 60px;
+  	font-size: 50px;
 }
 
 ::placeholder {
