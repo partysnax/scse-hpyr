@@ -302,7 +302,7 @@ class App extends React.Component {
 		console.log(locationData);
 		this.setState({
 			locationData: locationData
-		})
+		}, this.scrollToBottom)
 	}
 
 	calculateAdvisoryScore = async () => {
@@ -468,6 +468,14 @@ class App extends React.Component {
 	  }
 	}
 
+	////////////////////////////////////////////////
+	// Scrolling
+	////////////////////////////////////////////////
+
+	scrollToBottom = () => {
+		this.pageEnd.scrollIntoView({ behavior: "smooth" });
+	}
+
 	render() {
 	  	return (
 		    <div className="App">
@@ -484,8 +492,9 @@ class App extends React.Component {
 							<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
 						</div>
 						<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
-						<Results locationData={this.state.locationData}/>		        	
-		      </div>     
+						<div style={{ float:"left", clear: "both" }} ref={(el) => { this.pageEnd = el; }} />
+						<Results locationData={this.state.locationData}/>
+		      </div>
 	      </div>
 	    );
    }
