@@ -301,6 +301,10 @@ class App extends React.Component {
   	}
   }
 
+  componentDidMount () {
+  	document.title = 'Should I Travel There'
+  }
+
 	////////////////////////////////////////////////
 	// Calculate and prepare data
 	////////////////////////////////////////////////
