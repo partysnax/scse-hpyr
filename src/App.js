@@ -23,6 +23,30 @@ class WeatherBox extends React.Component {
 		}
 	}
 
+	tempColor = (temp) => {
+		if (temp <= -10) {
+			return 'vvcold';
+		}
+		else if (temp <= 10) {
+			return 'vcold';
+		}
+		else if (temp <= 15) {
+			return 'cold';
+		}
+		else if (temp <= 25) {
+			return 'normal';
+		}
+		else if (temp <= 30) {
+			return 'hot';
+		}
+		else if (temp <= 40) {
+			return 'vhot';
+		}
+		else {
+			return 'vvhot';
+		}
+	}
+
 	listHigh = () => {
 		return (
 			<tr>
@@ -30,9 +54,11 @@ class WeatherBox extends React.Component {
 					<img className="tooltip-icon" src={hitemp} alt="Temperature High"/>
 				</td>
 				{this.props.location.weather.map((day, index) => {
+					let temp = Math.round(day.data.high*10)/10;
+					let tempStyle = `temp-color-${this.tempColor(temp)}`;
 					return (
-						<td className="cell" key={index}>
-							{Math.round(day.data.high*10)/10}
+						<td className={`cell ${tempStyle}`} key={index}>
+							{temp}
 						</td>
 					);
 				})}
@@ -47,14 +73,34 @@ class WeatherBox extends React.Component {
 					<img className="tooltip-icon" src={lotemp} alt="Temperature Low"/>
 				</td>
 				{this.props.location.weather.map((day, index) => {
+					let temp = Math.round(day.data.low*10)/10;
+					let tempStyle = `temp-color-${this.tempColor(temp)}`;
 					return (
-						<td className="cell" key={index}>
-							{Math.round(day.data.low*10)/10}
+						<td className={`cell ${tempStyle}`} key={index}>
+							{temp}
 						</td>
 					);
 				})}
 			</tr>
 		);
+	}
+
+	precipColor = (precip) => {
+		if (precip >= 80) {
+			return 'vhigh';
+		}
+		else if (precip >= 60) {
+			return 'high';
+		}
+		else if (precip >= 40) {
+			return 'mid';
+		}
+		else if (precip >= 20) {
+			return 'low';
+		}
+		else {
+			return 'vlow';
+		}
 	}
 
 	listPrecip = () => {
@@ -64,9 +110,11 @@ class WeatherBox extends React.Component {
 					<img className="tooltip-icon" src={prep} alt="Precipitation Rate" />
 				</td>
 				{this.props.location.weather.map((day, index) => {
+					let precip = Math.round(day.data.precip*100);
+					let precipStyle = `precip-color-${this.precipColor(precip)}`;
 					return (
-						<td className="cell" key={index}>
-							{Math.round(day.data.precip*100)}%
+						<td className={`cell ${precipStyle}`} key={index}>
+							{precip}%
 						</td>
 					);
 				})}
@@ -109,7 +157,9 @@ class WeatherBox extends React.Component {
 		return (
 			<td onMouseEnter={this.ping} onMouseLeave={this.pong}>
 				<div style={{position: 'relative'}}>
-					{Math.round(this.props.location.weatherScore*100)}
+					<span className="tooltip-trigger">
+						{Math.round(this.props.location.weatherScore*100)}
+					</span>
 					{this.weatherTooltip(this.props.location.weather)}
 				</div>
 			</td>
@@ -128,7 +178,7 @@ class Results extends React.Component {
 				<td><a href={`https://www.lonelyplanet.com/search?q=${location.LocationName}`} target="_blank" rel="noopenner noreferrer">{location.LocationName}</a></td>
 				<WeatherBox location={location} />
 				<td>{Math.round(location.advisoryScore*100)}</td>
-				<td>{Math.round(location.totalScore*100)}</td>
+				<td className ='important-score'>{Math.round(location.totalScore*100)}</td>
 			</tr>
 		);
 	}
@@ -146,7 +196,7 @@ class Results extends React.Component {
 								<th>Location Name</th>
 								<th>Weather Score</th>
 								<th>Safety Score</th>
-								<th id ='important-score'>Total Score</th>
+								<th>Total Score</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -302,7 +352,7 @@ class App extends React.Component {
 		console.log(locationData);
 		this.setState({
 			locationData: locationData
-		}, this.scrollToBottom)
+		}, this.scrollToResults)
 	}
 
 	calculateAdvisoryScore = async () => {
@@ -371,7 +421,7 @@ class App extends React.Component {
 				longitude: value.Longitude,
 			};
 			let distance = geolib.getDistance(targetLocation, valueCoords);
-			return distance <= maxDistance && distance >= 10000;
+			return distance <= maxDistance;
 		})
 
 		console.log(locationList);
@@ -439,7 +489,7 @@ class App extends React.Component {
 			locationLat: lat,
 			locationLong: long,
 			locationCountry: countryCode
-		})
+		}, this.scrollToOptions)
 	}
 
 	////////////////////////////////////////////////
@@ -471,9 +521,13 @@ class App extends React.Component {
 	////////////////////////////////////////////////
 	// Scrolling
 	////////////////////////////////////////////////
+	
+	scrollToOptions = () => {
+		this.pageOptions.scrollIntoView({ behavior: "smooth", block: "end" });
+	}
 
-	scrollToBottom = () => {
-		this.pageEnd.scrollIntoView({ behavior: "smooth" });
+	scrollToResults = () => {
+		this.pageResults.scrollIntoView({ behavior: "smooth" });
 	}
 
 	render() {
@@ -492,7 +546,8 @@ class App extends React.Component {
 							<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
 						</div>
 						<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
-						<div style={{ float:"left", clear: "both" }} ref={(el) => { this.pageEnd = el; }} />
+						<div ref={(el) => { this.pageOptions = el; }} />
+						<div ref={(el) => { this.pageResults = el; }} />
 						<Results locationData={this.state.locationData}/>
 		      </div>
 	      </div>

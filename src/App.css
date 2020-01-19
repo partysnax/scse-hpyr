@@ -198,8 +198,8 @@
   background-color: #6497B1;
   color: white;
 }
-#important-score {
-	font-weight: bolder;
+td.important-score {
+	font-size: 38px !important;
 }
 .map {
 	position: relative;
@@ -244,4 +244,56 @@
 .cell{
 	height: 50px;
 	width: 50px;
+}
+
+.tooltip-trigger{
+	border-bottom: 1px dotted black;
+}
+
+.temp-color-vvcold {
+	background-color: #bbbbff;
+}
+
+.temp-color-vcold {
+	background-color: #cfcfff;
+}
+
+.temp-color-cold {
+	background-color: #eeeeff;
+}
+
+.temp-color-normal {
+	background-color: #ffffff;
+}
+
+.temp-color-hot {
+	background-color: #fff5d1;
+}
+
+.temp-color-vhot {
+	background-color: #ffab89;
+}
+
+.temp-color-vvhot {
+	background-color: #ff7f65;
+}
+
+.precip-color-vhigh {
+	background-color: #216bff;
+}
+
+.precip-color-high {
+	background-color: #5b92ff;
+}
+
+.precip-color-mid {
+	background-color: #89c1ff;
+}
+
+.precip-color-low {
+	background-color: #d3f1ff;
+}
+
+.precip-color-vlow {
+	background-color: #ffffff;
 }
