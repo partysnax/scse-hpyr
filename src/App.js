@@ -304,7 +304,7 @@ class App extends React.Component {
 		console.log(locationData);
 		this.setState({
 			locationData: locationData
-		}, this.scrollToBottom)
+		}, this.scrollToResults)
 	}
 
 	calculateAdvisoryScore = async () => {
@@ -441,7 +441,7 @@ class App extends React.Component {
 			locationLat: lat,
 			locationLong: long,
 			locationCountry: countryCode
-		})
+		}, this.scrollToOptions)
 	}
 
 	////////////////////////////////////////////////
@@ -473,9 +473,13 @@ class App extends React.Component {
 	////////////////////////////////////////////////
 	// Scrolling
 	////////////////////////////////////////////////
+	
+	scrollToOptions = () => {
+		this.pageOptions.scrollIntoView({ behavior: "smooth", block: "end" });
+	}
 
-	scrollToBottom = () => {
-		this.pageEnd.scrollIntoView({ behavior: "smooth" });
+	scrollToResults = () => {
+		this.pageResults.scrollIntoView({ behavior: "smooth" });
 	}
 
 	render() {
@@ -494,7 +498,8 @@ class App extends React.Component {
 							<button className = "button1" onClick={this.getCurrentLocation}> Somewhere Nearby </button>
 						</div>
 						<UserConfig lat={this.state.locationLat} long={this.state.locationLong} countryCode={this.state.locationCountry} filterLocations={this.filterLocations}/>
-						<div style={{ float:"left", clear: "both" }} ref={(el) => { this.pageEnd = el; }} />
+						<div ref={(el) => { this.pageOptions = el; }} />
+						<div ref={(el) => { this.pageResults = el; }} />
 						<Results locationData={this.state.locationData}/>
 		      </div>
 	      </div>
