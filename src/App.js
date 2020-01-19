@@ -185,7 +185,6 @@ class Results extends React.Component {
 
 	render () {
 		if (this.props.locationData.length > 0) { //IF NOT EMPTY
-			//TODO: Implement a sorting system
 			return (
 				<div>
 					<table id = 'tablee'>
@@ -194,7 +193,12 @@ class Results extends React.Component {
 								<th>Rank</th>
 								<th>Country</th>
 								<th>Location Name</th>
-								<th>Weather Score</th>
+								<th>
+									<span>
+										Weather Score&nbsp;
+										<img src="https://cdn3.iconfinder.com/data/icons/bold-blue-glyphs-free-samples/32/Info_Circle_Symbol_Information_Letter-512.png" title="Mouseover each cell for the weather this week" style={{height: '20px', width: '20px'}}/>
+									</span>
+								</th>
 								<th>Safety Score</th>
 								<th>Total Score</th>
 							</tr>

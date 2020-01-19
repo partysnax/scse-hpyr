@@ -238,7 +238,7 @@ td.important-score {
 
 .weather-tooltip {
 	position: absolute; 
-	width: 340%; 
+	width: 650px; 
 	z-index: 1; 
 	bottom: 100%; 
 	left: 30%; 
@@ -247,20 +247,20 @@ td.important-score {
 	border: 1px solid black;
 	border-radius: 5px;
 }
+
 .tooltip {
 	width: 100%;
 }
-.tooltip-main {
-	width: 100%;
-	height: 100%;
-}
+
 .tooltip-icon {
 	height: 50px;
-	width: 50x;
+	width: 50px;
 }
+
 .cell{
 	height: 50px;
 	width: 50px;
+	font-size: 24px !important;
 }
 
 .tooltip-trigger{
