@@ -538,11 +538,9 @@ class App extends React.Component {
 	  	return (
 		    <div className="App">
 					<div className="AppBanner" >
-      			<h1 className="header">Should I Travel There?{"\n"}</h1>
-      			<div className="text-muted">
-      				<h4 className="subheader">your real time travel recommendations!</h4>
-						</div>		        	
-		    	</div>
+      					<h1 className="header">Should I Travel There?{"\n"}</h1>
+  						<div className="subheader">your real time travel recommendations!</div>
+		    		</div>
 		      <div className="AppNonBanner">
 			    	<input className = "Input" type="text" placeholder="Where do you plan to go?" value={this.state.inputLocation} onChange={this.handleInputChange} onKeyPress={this.handleKeyInput}/>
 						<div className = "buttonholder">
